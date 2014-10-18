@@ -58,7 +58,9 @@
 }
 
 .article-list {
-  background-color: white;
+
+  //background-color: white;
+  background-color: #fdf6e3;
   padding-top: 60px;
 
   article {
@@ -69,7 +71,8 @@
     }
 
     h2 > a {
-      color: black;
+      color: #4e2d8b;
+      //color: black;
       font-weight: 700;
       font-style: normal;
       line-height: 1.2;
