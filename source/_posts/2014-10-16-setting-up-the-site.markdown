@@ -4,9 +4,9 @@ title: "Setting up the site"
 date: 2014-10-13 00:37:47 +0100
 comments: true
 categories: [Octopress, LaTeX, MathJax, Github]
-image: "images/ironcat.jpg"
+image: "/images/ironcat.jpg"
 ---
-## This is not a tutorial but ... <!-- more --> 
+## This is not a tutorial but ... <!-- more -->
 <p align="justify">
 I am more than happy to answer and discuss any questions related to the features of the blog. Please feel free to contact me or comment where appropiate. The amount of tutorials out there describing how to set up a github page or an octopress site is huge, and it is often written by people a lot more competent than me in the ever evolving web-desgin universe.
 </p>
