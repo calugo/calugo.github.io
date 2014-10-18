@@ -1,0 +1,230 @@
+
+<!DOCTYPE html>
+<!--[if IEMobile 7 ]><html class="no-js iem7"><![endif]-->
+<!--[if lt IE 9]><html class="no-js lte-ie8"><![endif]-->
+<!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
+<!DOCTYPE html>
+<!--[if IEMobile 7 ]><html class="no-js iem7"><![endif]-->
+<!--[if lt IE 9]><html class="no-js lte-ie8"><![endif]-->
+<!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <title>Calcium Dynamics in Atrial Cells - Carlos A. Lugo&#8217;s site</title>
+  <meta name="author" content="Carlos A Lugo Vélez">
+
+  
+  <meta name="description" content="Calcium Dynamics in Atrial Cells written Oct 14th, 2014 4:53 pm in atrial cells, calcium models, cardiac dynamics, complexity, ryanodyne receptors, &hellip;">
+  
+
+  <!-- http://t.co/dKP3o1e -->
+  <meta name="HandheldFriendly" content="True">
+  <meta name="MobileOptimized" content="320">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  
+  <link rel="canonical" href="http://calugo.github.io/blog/2014/10/14/models-of-calcium-release-in-the-human-atria">
+  <link href="/favicon.png" rel="icon">
+  <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
+  <link href="/atom.xml" rel="alternate" title="Carlos A. Lugo's site" type="application/atom+xml">
+  <script src="/javascripts/modernizr-2.0.js"></script>
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+  <script>!window.jQuery && document.write(unescape('%3Cscript src="./javascripts/libs/jquery.min.js"%3E%3C/script%3E'))</script>
+  <script src="/javascripts/octopress.js" type="text/javascript"></script>
+  
+
+</head>
+
+  <body>
+    <a href="/" class="home-icon">
+      <img src="/images/home.png"/>
+    </a>
+
+    <article role="article" class="full-single-article">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-8 col-md-offset-2">
+        <h1>Calcium Dynamics in Atrial Cells</h1>
+        <div class="meta">
+          written 
+
+
+
+
+
+
+
+
+
+
+
+
+<span class="glyphicon glyphicon-calendar"></span> <time datetime="2014-10-14T16:53:29+01:00"  data-updated="true" itemprop="datePublished dateCreated"><time class='entry-date' datetime='2014-10-14T16:53:29+01:00'><span class='date'><span class='date-month'>Oct</span> <span class='date-day'>14</span><span class='date-suffix'>th</span>, <span class='date-year'>2014</span></span> <span class='time'>4:53 pm</span></time></time>
+          
+
+in
+<span class="categories">
+  
+    <a class='category' href='/blog/categories/atrial-cells/'>atrial cells</a>, <a class='category' href='/blog/categories/calcium-models/'>calcium models</a>, <a class='category' href='/blog/categories/cardiac-dynamics/'>cardiac dynamics</a>, <a class='category' href='/blog/categories/complexity/'>complexity</a>, <a class='category' href='/blog/categories/ryanodyne-receptors/'>ryanodyne receptors</a>, <a class='category' href='/blog/categories/statistical-physics/'>statistical physics</a>
+  
+</span>
+
+
+        </div>
+        <h2 id="avast-me-hearties----more-------modelling-cardiac-dynamics">Avast Me Hearties! <!-- more --> -  Modelling cardiac dynamics.</h2>
+
+<p align="justify">
+The heart is such a marvelous system of study from a mathematical point of view because it exhibits
+all the features which fascinate those interested in the science of collective phenomena.
+Indeed, it is
+out of equilibrium, it is highly non-linear, ionic signaling induces mechanical
+ responses and it can be studied as an ensemble of discrete and stochastic elements
+ which can be &#8220;renormalised&#8221;
+until obtaining reaction-diffusion deterministic field description of the cell and even tissues!
+</p>
+
+<p align="justify">
+Beyond mathematical reasons it is obvious to say that if we understand the mechanisms driving the state of cardiac myocytes, it is more likely we
+ can apply solutions to pathologies which put health at peril, by shedding a light on routes to more specific drug development or non-invasive procedures to correct chronic anomalies.
+</p>
+
+<p aligned="justify">
+As a member of the  <a href="http://www-fa.upc.es/websfa/eupb/NOLIN/CARDIAC/Welcome.html">applied physics department</a> of UPC (Barcelona)
+ I collaborated in the developmnet of a mathematical model of human atrial cells recently published and entitled:
+</p>
+
+<p><strong><a href="http://ajpheart.physiology.org/content/306/11/H1540">Are SR Ca content fluctuations or SR refractoriness the key to atrial cardiac alternans?: insights from a human atrial model</a></strong>.</p>
+
+<p align="justify">
+The model is pretty detailed, it employs several expressions for pumps and currents developed by
+Nygren et al, and Courtemanche et al., but reformulates the
+calcium release mechanism in order to study the hypothesis of arrhythmogenesis
+induced by refractoriness variability in the calcium release units.
+</p>
+<p align="justify">
+The above means that the <b>calcium release units</b> physically associated with
+ryanodine receptors can be mathematically treated as excitable media which undergo
+transitions between states, such as <i>active/inactive</i> in which the recovery
+time $\tau_{rec}$ is the reciprocal number to the rate of occurrence  one of such transitions.
+</p>
+<div style="text-align: center;">
+<img src="/images/BCNATRIA.png" width="700" />
+<p> A)The model&#8217;s compartment schematics. B) RyRs states diagram.</p>
+</div>
+<p align="justify">
+It is the relationship between $\tau_{rec}$ and the pacemaker cells $T_{stim}$ which governs
+the mechanism known as &#8220;recovery from inactivation&#8221; and it is extensively described in our paper
+and the references therein
+</p>
+
+<div style="text-align: center;">
+<img src="/images/BCNRESULTS.png" width="700" />
+<p>Some results obtained from varying the refractoriness: Bifurcations, Alternans, Hysteresis.
+</p>
+</div>
+<p align="justify">
+These  <b>RyRs stochastic dynamics</b> constitute the dynamical aspect which interests me the most. Hopefully I will post about
+that soon, basically they can be described by Master Equations and which can be treated
+analytically by perturbation analysis, Floquet theory and all the machinery of non-linear science, which
+makes the entire class of systems a very rich and active field.  
+</p>
+<p align="justify">
+That is all for now, I assume you have visited the UPC cardiac dynamics site, if not,
+<a href="http://www-fa.upc.es/websfa/eupb/NOLIN/CARDIAC/Welcome.html">here is the link </a> again. If you want
+to start a PhD or are thinking of a  postdoc, check it out, they are pretty good and on top of that it is located
+in the mighty city of Barcelona!.
+
+ Finally, let me just link you all (asuming someone reads this) to the model&#8217;s source code and project page, as well as to a
+great site about virtual hearts mantained Liz Cherry and Flavio Fenton.
+</p>
+
+<h2 id="links">Links:</h2>
+
+<ul>
+  <li><strong>UPC-Atrial model code:</strong> <a href="http://calugo.github.io/UPC-ATRIA/">here</a> (Github project page)</li>
+  <li><a href="http://thevirtualheart.org/"><strong>The Virtual Heart!</strong></a></li>
+</ul>
+
+
+        <hr class="divider-short"/>
+        
+        
+        <section>
+          <h1>Comments</h1>
+          <div id="disqus_thread" aria-live="polite"><noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+</div>
+        </section>
+        
+      </div>
+    </div>
+  </div>
+</article>
+
+<hr class="divider-short"/>
+
+<div class="archive-link">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-8 col-md-offset-2">
+        
+          <a class="pull-left" href="/blog/2014/10/13/setting-up-the-site/" title="Previous Post: Setting up the site">&laquo; Previous: Setting up the site</a>
+        
+
+        
+          <a class="pull-right" href="/blog/2014/10/14/cai-dynamics-in-atrial-tissues/" title="Next Post: Calcium dynamics in atrial tissues">Next: Calcium dynamics in atrial tissues &raquo;</a>
+        
+      </div>
+    </div>
+  </div>
+</div>
+
+    <footer id="footer" class="her-row">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-1">
+  <a href="/"><h4>Home</h4></a>
+</div>
+
+<div class="col-md-2">
+  <div class="social-icon-list">
+    
+    <a href="https://twitter.com/kupkasmale"><img src="/images/glyphicons_social_31_twitter.png"/></a>
+    
+
+    
+    <a href="https://github.com/calugo"><img src="/images/glyphicons_social_21_github.png"/></a>
+    
+
+    
+
+    
+  </div>
+</div>
+
+<div class="pull-right">
+  <h4>Powered by <a href="http://octopress.org/">Octopress</a>. Hosted in   <a href="https://github.com/calugo">Github</a>. Base theme <a href="https://github.com/sevenadrian/MediumFox">MediumFox</a> by <a href="http://AdrianArtiles.com">Adrian Artiles</a>.</h4>
+</div>
+
+
+    </div>
+  </div>
+</footer>
+
+  </body>
+</html>
+
+
+<!-- mathjax config similar to math.stackexchange -->
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+  jax: ["input/TeX", "output/HTML-CSS"],
+  tex2jax: {
+    inlineMath: [ ['$', '$'] ],
+    displayMath: [ ['$$', '$$']],
+    processEscapes: true,
+    skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+  },
+  messageStyle: "none",
+  "HTML-CSS": { preferredFont: "TeX", availableFonts: ["STIX","TeX"] }
+});
+</script>
+<script src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_HTML" type="text/javascript"></script>

@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Category: Mathjax | Carlos A. Lugo's site]]></title>
+  <link href="http://calugo.github.io/blog/categories/mathjax/atom.xml" rel="self"/>
+  <link href="http://calugo.github.io/"/>
+  <updated>2014-10-18T23:30:23+01:00</updated>
+  <id>http://calugo.github.io/</id>
+  <author>
+    <name><![CDATA[Carlos A Lugo Vélez]]></name>
+    
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[Setting Up the Site]]></title>
+    <link href="http://calugo.github.io/blog/2014/10/13/setting-up-the-site/"/>
+    <updated>2014-10-13T00:37:47+01:00</updated>
+    <id>http://calugo.github.io/blog/2014/10/13/setting-up-the-site</id>
+    <content type="html"><![CDATA[<h2 id="this-is-not-a-tutorial-but-----more---">This is not a tutorial but … <!-- more --></h2>
+<p align="justify">
+I am more than happy to answer and discuss any questions related to the features of the blog. Please feel free to contact me or comment where appropiate. The amount of tutorials out there describing how to set up a github page or an octopress site is huge, and it is often written by people a lot more competent than me in the ever evolving web-desgin universe.
+</p>
+
+<p align="justify">
+Instead, I will post a list of links to very cool projects and blogs whose authors I would like to acknowledge because they were extremely helpful at the time of setting up this blog the way I like it. The site&#8217;s theme is a slightly modified version of the MediumFox theme, some additions are the use of MathJax to render LaTeX expressions and some minor fixes which I believe are already included in recent commits.
+</p>
+
+<h2 id="octopress">Octopress:</h2>
+<ul>
+  <li><a href="http://octopress.org/">Octopress’ site</a></li>
+  <li><a href="https://github.com/imathis">imathis (Source and Colour Picker!):</a></li>
+  <li><a href="https://github.com/kAworu">kAworu-Alexandre Perrin (Date display fix)</a></li>
+  <li><a href="http://adrianartiles.com/">Adrian Artiles (Base theme-MediumFox)</a></li>
+</ul>
+
+<h2 id="mathjax-setup-and-left-click-bug-fix">MathJax Setup and left click bug fix:</h2>
+<ul>
+  <li><a href="http://arnabocean.com/frontposts/2014-04-10-mathjaxoctopress/">Arnab Gupta</a></li>
+  <li><a href="http://drz.ac/2013/01/03/blogging-with-math/">Dr. Z</a></li>
+  <li><a href="http://www.lucypark.kr/blog/2013/02/25/mathjax-kramdown-and-octopress/">Lucy Park</a></li>
+  <li><a href="https://liangsun.org/posts/write-latex-with-octopress-mathjax/">Liang Sun</a></li>
+  <li><a href="http://brianbuccola.github.io/blog/2012-11-28-latex-math-in-octopress.html">Brian Buccola</a></li>
+</ul>
+
+<h2 id="git-and-github-setup-ironcat-and-tweaks">Git and Github setup, Ironcat and tweaks:</h2>
+
+<ul>
+  <li><a href="http://readwrite.com/2013/09/30/understanding-github-a-journey-for-beginners-part-1">Lauren Orsini’s Github for beginners</a></li>
+  <li><a href="https://octodex.github.com/">Octocat-IronCat</a>-<a href="https://github.com/cameronmcefee">Cameron McEfee</a></li>
+  <li><a href="https://github.com/wookoouk">Martin Page</a></li>
+</ul>
+
+<p>Cheers to all of you!</p>
+]]></content>
+  </entry>
+  
+</feed>

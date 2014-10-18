@@ -1,0 +1,210 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Category: Cardiac Waves | Carlos A. Lugo's site]]></title>
+  <link href="http://calugo.github.io/blog/categories/cardiac-waves/atom.xml" rel="self"/>
+  <link href="http://calugo.github.io/"/>
+  <updated>2014-10-18T23:30:23+01:00</updated>
+  <id>http://calugo.github.io/</id>
+  <author>
+    <name><![CDATA[Carlos A Lugo Vélez]]></name>
+    
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[Calcium Dynamics in Atrial Tissues]]></title>
+    <link href="http://calugo.github.io/blog/2014/10/14/cai-dynamics-in-atrial-tissues/"/>
+    <updated>2014-10-14T16:58:32+01:00</updated>
+    <id>http://calugo.github.io/blog/2014/10/14/cai-dynamics-in-atrial-tissues</id>
+    <content type="html"><![CDATA[<h2 id="cellcellcellcelltissue----more---">Cell+Cell+Cell+…+Cell=Tissue! <!-- more --></h2>
+
+<p align="justify">
+This is an ongoing project, and it consists of investigating the emergent phenomena resulting from coupling
+cells (from the model presented
+<a href="http://ajpheart.physiology.org/content/306/11/H1540">here</a>) by coupling the membrane potential
+$V_m(r,t)$ of every cell and ditributing alternating-non alternating domains of cells and see what happens.
+</p>
+<p>Cells are coupled by junctions as:</p>
+
+<script type="math/tex; mode=display">\frac{dVm(r)}{dt}=-\frac{I(r)}{C_m}+\frac{D}{(\Delta r)^2}\sum_{r' \in r_{n.n}}(V_m(r')-V_m(r))</script>
+
+<p>With:</p>
+
+<ul>
+  <li>$\Delta r=0.025[\mu m]$ ,</li>
+  <li>$dt=0.01$  $[ms]$  (so $[D]=[\mu m]^2/[ms]$).</li>
+  <li>$T_{stim}=400$  $[ms]$ (Alternating regime)</li>
+</ul>
+
+<p align="justify">
+Early versions of these
+experiments showed wave blockage and re-entry waves in the $V_m$ field. Although I haven&#8217;t
+considered real human atria geometries I have dozens of cool results by setting up a variety of
+arrangements for domains of sick and healthy cells.</p>
+<p align="justify">
+The one I show in this post is very interesting, it exhibits <b>discordant alternans</b>, induced only by the geometry.
+This means that the alternans within the sick cells domain occurs completely
+out of phase.</p>
+<p align="justify">
+ For a better understanding of what I am trying to communicate check the movies below.
+</p>
+<p>
+$[Ca^{2+}]_{i}(x,y,t):$
+</p>
+<div style="text-align: center;">
+<video width="320" height="240" controls="">
+ <source src="/movies/CAI2D.webm" type="video/mp4" />
+</video>
+</div>
+
+<p>
+And, $V_m(x,y,t):$
+</p>
+<div style="text-align: center;">
+<video width="320" height="240" controls="">
+ <source src="/movies/V2D.webm" type="video/mp4" />
+ Your browser does not support the video tag.
+</video>
+</div>
+
+<p align="justify">
+This is still an open project, although some results have been published,
+we are still looking for a reduction of some dynamical aspects ot the
+RyR dynamics, as well as to realistic homeomorphims of human atrial geometries.
+</p>
+
+<h1 id="movie-scripts">Movie Scripts.</h1>
+
+<p align="justify">
+
+To conclude with the post,  I&#8217;m going to briefly discuss the scripts
+I use to make the movies. These are tweaked versions of the examples
+discussed in the matplotlib documentation, and basically are created reading
+ data files labeled using time containing a &#8220;picture&#8221; of a particular
+ field variable at that given instant.
+<p>
+
+<p align="justify">
+It requires the initial and final times, and the encoder FFMpeg installed, and
+of course python and matplotlib. The movie is encoded in mp4 format, for
+web usage perhaps is better to use &#8220;webm&#8221; (using ffmpeg -i V2D.mp4 V2D.webm
+, for example).
+<p>
+
+
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+<span class='line-number'>16</span>
+<span class='line-number'>17</span>
+<span class='line-number'>18</span>
+<span class='line-number'>19</span>
+<span class='line-number'>20</span>
+<span class='line-number'>21</span>
+<span class='line-number'>22</span>
+<span class='line-number'>23</span>
+<span class='line-number'>24</span>
+<span class='line-number'>25</span>
+<span class='line-number'>26</span>
+<span class='line-number'>27</span>
+<span class='line-number'>28</span>
+<span class='line-number'>29</span>
+<span class='line-number'>30</span>
+<span class='line-number'>31</span>
+<span class='line-number'>32</span>
+<span class='line-number'>33</span>
+<span class='line-number'>34</span>
+<span class='line-number'>35</span>
+<span class='line-number'>36</span>
+<span class='line-number'>37</span>
+<span class='line-number'>38</span>
+<span class='line-number'>39</span>
+<span class='line-number'>40</span>
+<span class='line-number'>41</span>
+<span class='line-number'>42</span>
+<span class='line-number'>43</span>
+<span class='line-number'>44</span>
+<span class='line-number'>45</span>
+<span class='line-number'>46</span>
+<span class='line-number'>47</span>
+<span class='line-number'>48</span>
+<span class='line-number'>49</span>
+<span class='line-number'>50</span>
+<span class='line-number'>51</span>
+<span class='line-number'>52</span>
+<span class='line-number'>53</span>
+<span class='line-number'>54</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>import numpy as np
+</span><span class='line'>import matplotlib
+</span><span class='line'>matplotlib.use("Agg")
+</span><span class='line'>import matplotlib.pyplot as plt
+</span><span class='line'>import matplotlib.animation as manimation
+</span><span class='line'>
+</span><span class='line'>FFMpegWriter = manimation.writers['ffmpeg']
+</span><span class='line'>metadata = dict(title='Movie Test', artist='Matplotlib',
+</span><span class='line'>        comment='Movie support!')
+</span><span class='line'>writer = FFMpegWriter(fps=15, metadata=metadata)
+</span><span class='line'>
+</span><span class='line'>fig = plt.figure()
+</span><span class='line'>To=6000
+</span><span class='line'>Tf=20000
+</span><span class='line'>tmk=[]
+</span><span class='line'>zi=To
+</span><span class='line'>while zi&lt;=Tf:
+</span><span class='line'>	tmk.append(zi)
+</span><span class='line'>	zi+=5
+</span><span class='line'>
+</span><span class='line'>print tmk
+</span><span class='line'>raw_input()
+</span><span class='line'>
+</span><span class='line'>#Initial Setup
+</span><span class='line'>Sn='Cai'
+</span><span class='line'>Fn="../snaps/"+str(To)+".000000"+Sn+".dat"
+</span><span class='line'>print Fn
+</span><span class='line'>Nk=np.loadtxt(Fn)
+</span><span class='line'>
+</span><span class='line'>with writer.saving(fig, "CAI2D.mp4", 100):
+</span><span class='line'>	plt.imshow(Nk)#, extent = [0,50, 100, 0] )
+</span><span class='line'>	cax = plt.axes([0.80, 0.1, 0.04, 0.8])
+</span><span class='line'>	zmin=0.0000
+</span><span class='line'>	zmax=0.0014
+</span><span class='line'>	plt.clim(zmin,zmax)
+</span><span class='line'>	plt.colorbar(cax=cax)
+</span><span class='line'>	#plt.colorbar()
+</span><span class='line'>	fig.suptitle('T= '+str(To), fontsize=14, fontweight='bold')
+</span><span class='line'>        writer.grab_frame()
+</span><span class='line'>	plt.clf()
+</span><span class='line'>	#for i in range(1+To,1+Tf):
+</span><span class='line'>	for i in tmk:
+</span><span class='line'>		Fn="../snaps/"+str(i)+".000000"+Sn+".dat"
+</span><span class='line'>		print Fn
+</span><span class='line'>		Nk=np.loadtxt(Fn)
+</span><span class='line'>		plt.imshow(Nk)#, extent = [0,50, 100, 0] )
+</span><span class='line'>		cax = plt.axes([0.80, 0.1, 0.04, 0.8])
+</span><span class='line'>		plt.colorbar(cax=cax)
+</span><span class='line'>		plt.clim(zmin,zmax)
+</span><span class='line'>		#plt.colorbar(cax=cax)
+</span><span class='line'>		#plt.colorbar()
+</span><span class='line'>		fig.suptitle('T= '+str(i), fontsize=14, fontweight='bold')
+</span><span class='line'>        	writer.grab_frame()
+</span><span class='line'>		plt.clf()</span></code></pre></td></tr></table></div></figure>
+</p></p></p></p>
+]]></content>
+  </entry>
+  
+</feed>
