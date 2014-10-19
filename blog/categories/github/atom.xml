@@ -4,7 +4,7 @@
   <title><![CDATA[Category: Github | Carlos A. Lugo's site]]></title>
   <link href="http://calugo.github.io/blog/categories/github/atom.xml" rel="self"/>
   <link href="http://calugo.github.io/"/>
-  <updated>2014-10-19T19:48:52+01:00</updated>
+  <updated>2014-10-19T20:12:47+01:00</updated>
   <id>http://calugo.github.io/</id>
   <author>
     <name><![CDATA[Carlos A Lugo Vélez]]></name>
@@ -33,6 +33,7 @@ Instead, I will post a list of links to very cool projects and blogs whose autho
   <li><a href="https://github.com/imathis">imathis (Source and Colour Picker!):</a></li>
   <li><a href="https://github.com/kAworu">kAworu-Alexandre Perrin (Date display fix)</a></li>
   <li><a href="http://adrianartiles.com/">Adrian Artiles (Base theme-MediumFox)</a></li>
+  <li><a href="http://gustavocaso.github.io">Gustavo Caso (Disqus setup):</a></li>
 </ul>
 
 <h2 id="mathjax-setup-and-left-click-bug-fix">MathJax Setup and left click bug fix:</h2>
