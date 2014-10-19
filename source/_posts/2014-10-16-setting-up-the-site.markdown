@@ -20,6 +20,7 @@ Instead, I will post a list of links to very cool projects and blogs whose autho
   * [imathis (Source and Colour Picker!):](https://github.com/imathis)
   * [kAworu-Alexandre Perrin (Date display fix)](https://github.com/kAworu)
   * [Adrian Artiles (Base theme-MediumFox)](http://adrianartiles.com/)
+  * [Gustavo Caso (Disqus setup):](http://gustavocaso.github.io)
 
 ## MathJax Setup and left click bug fix:
   * [Arnab Gupta](http://arnabocean.com/frontposts/2014-04-10-mathjaxoctopress/)
