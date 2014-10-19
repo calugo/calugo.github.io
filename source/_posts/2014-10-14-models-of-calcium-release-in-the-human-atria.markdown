@@ -3,7 +3,7 @@ layout: post
 title: "Calcium dynamics in atrial cells"
 date: 2014-10-14 16:53:29 +0100
 comments: true
-categories: [Calcium Models, Cardiac Dynamics, Atrial Cells, Ryanodyne Receptors, Statistical Physics, Complexity]
+categories: [Calcium Dynamics in the Human Heart, Cardiac Dynamics, Atrial Cells, Ryanodyne Receptors, Statistical Physics, Complexity]
 image: "/images/CaiT.png"
 ---
 ## Avast Me Hearties! <!-- more --> -  Modelling cardiac dynamics.
