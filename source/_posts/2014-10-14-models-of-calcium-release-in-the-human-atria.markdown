@@ -54,7 +54,7 @@ and the references therein
 </p>
 
 <div style="text-align: center;">
-<img src="{{ root_url }}/images/BCNRESULTS.png" width="700" />
+<img src="{{ root_url }}/images/BCNRESULTSFLT.png" width="700" />
 <p>Some results obtained from varying the refractoriness: Bifurcations, Alternans, Hysteresis.
 </p>
 </div>

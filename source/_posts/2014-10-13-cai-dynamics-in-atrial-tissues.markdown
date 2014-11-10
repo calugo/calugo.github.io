@@ -3,7 +3,7 @@ layout: post
 title: "Calcium dynamics in atrial tissues"
 date: 2014-10-14 16:58:32 +0100
 comments: true
-categories: [python animations, Calcium Dynamics,Cardiac Tissue Models, Calcium Alternans, Cardiac Waves]
+categories: [python animations, Cardiac Tissue Models, Calcium Alternans, Cardiac Waves, Calcium Dynamics in the Human Heart, Cardiac Dynamics, Atrial Cells, Ryanodyne Receptors, Statistical Physics, Complexity]
 image: "/images/Cai2png.png"
 ---
 ##Cell+Cell+Cell+...+Cell=Tissue! <!-- more -->
@@ -81,9 +81,7 @@ web usage perhaps is better to use "webm" (using ffmpeg -i V2D.mp4 V2D.webm
 <p>
 
 
-
-{% codeblock %}
-
+{% codeblock lang:python %}
 import numpy as np
 import matplotlib
 matplotlib.use("Agg")
