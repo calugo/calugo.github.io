@@ -77,6 +77,9 @@ code (Github repo).
 </p>
 
 <p>
-Be sure that your browser supports WebGL and that it is enabled (help <a href="http://get.webgl.org/">here</a>). Click
- <a target="_blank" href="{{ root_url }}/jsnet/index.html"><b>HERE</b></a> to access the network explorer.  
+Be sure that your browser supports WebGL and that it is enabled (help <a href="http://get.webgl.org/">here</a>).</p>
+
+<p>
+
+ <a target="_blank" href="{{ root_url }}/jsnet/index.html"><b>THREE.JS-WEBGL INTERACTIVE GENETIC CODE NETWORK EXPLORER HERE</b></a>.  
 </p>
