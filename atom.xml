@@ -4,7 +4,7 @@
   <title><![CDATA[Carlos A. Lugo's site]]></title>
   <link href="http://calugo.github.io/atom.xml" rel="self"/>
   <link href="http://calugo.github.io/"/>
-  <updated>2014-11-12T00:01:42+00:00</updated>
+  <updated>2014-11-12T13:13:38+00:00</updated>
   <id>http://calugo.github.io/</id>
   <author>
     <name><![CDATA[Carlos A Lugo Vélez]]></name>
@@ -499,8 +499,11 @@ code (Github repo).
 </p>
 
 <p>
-Be sure that your browser supports WebGL and that it is enabled (help <a href="http://get.webgl.org/">here</a>). Click
- <a target="_blank" href="http://calugo.github.io/jsnet/index.html"><b>HERE</b></a> to access the network explorer.  
+Be sure that your browser supports WebGL and that it is enabled (help <a href="http://get.webgl.org/">here</a>).</p>
+
+<p>
+
+ <a target="_blank" href="http://calugo.github.io/jsnet/index.html"><b>THREE.JS-WEBGL INTERACTIVE GENETIC CODE NETWORK EXPLORER HERE</b></a>.  
 </p>
 ]]></content>
   </entry>
