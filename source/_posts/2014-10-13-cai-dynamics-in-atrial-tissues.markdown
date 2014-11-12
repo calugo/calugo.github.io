@@ -12,7 +12,7 @@ image: "/images/Cai2png.png"
 This is an ongoing project, and it consists of investigating the emergent phenomena resulting from coupling
 cells (from the model presented
 <a href="http://ajpheart.physiology.org/content/306/11/H1540" >here</a>) by coupling the membrane potential
-$V_m(r,t)$ of every cell and ditributing alternating-non alternating domains of cells and see what happens.
+$V_m(r,t)$ of every cell and distributing alternating-non alternating domains of cells and see what happens.
 </p>
 Cells are coupled by junctions as:
 
