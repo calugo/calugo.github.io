@@ -4,7 +4,7 @@
   <title><![CDATA[Category: Ipython | Carlos A. Lugo's site]]></title>
   <link href="http://calugo.github.io/blog/categories/ipython/atom.xml" rel="self"/>
   <link href="http://calugo.github.io/"/>
-  <updated>2014-11-12T13:13:38+00:00</updated>
+  <updated>2014-11-19T01:22:32+00:00</updated>
   <id>http://calugo.github.io/</id>
   <author>
     <name><![CDATA[Carlos A Lugo Vélez]]></name>
@@ -18,11 +18,11 @@
     <link href="http://calugo.github.io/blog/2014/10/14/genome-evolution-in-host-pathogen-systems/"/>
     <updated>2014-10-14T17:54:02+01:00</updated>
     <id>http://calugo.github.io/blog/2014/10/14/genome-evolution-in-host-pathogen-systems</id>
-    <content type="html"><![CDATA[<h2 id="finally-the-host-pathogen-entry----more---">Finally the host pathogen entry.! <!-- more --></h2>
+    <content type="html"><![CDATA[<h2 id="finally-the-host-pathogen-entry----more---">Finally the host pathogen entry! <!-- more --></h2>
 <p align="justify">
   This entry is the reason behind setting up the blog. The idea is to build up a mathematical-computational
   model of plant pathogen&#8217;s genome evolution to explore different scenarios such as evolutionary responses to  host jumps.  
-  In the following I  will be presenting and discussing every aspect of the  model
+  In the following I will be presenting and discussing every aspect of the  model
   in detail, maths, code, etc. Then  (soon I hope) it will be turned into a manuscript.
   </p>
 <p align="justify">
@@ -38,18 +38,17 @@
    <a href="http://calugo.github.io/TSL-PROJECT-A/">repository</a>.
   </p>
 <p align="justify">
-    For this project I used python, (I did a lot of testing and tinkering in <a href="#ipyth"> <b>IPython</b></a>,
+    For this project I am  using python, (I do a lot of testing and tinkering in <a href="#ipyth"> <b>IPython</b></a>,
    I strongly advice you to do the same!). The model heavily  relies on the sampling of random variables and because  
    I love and respect the algorithms
    contained in the <a href="#gsl"><b>GNU Scientific Library</b></a> I
-   ended up using the <b>pygsl</b>  wrapper, however <a href="http://www.numpy.org/">NumPy</a> and <a href="http://www.scipy.org/">SciPy</a> also contain well documented and functional modules.
+   ended up using the <a target="_blank" href="http://sourceforge.net/projects/pygsl/">pygsl</a>  wrapper, however <a target="_blank" href="http://www.numpy.org/">NumPy</a> and <a target="_blank" href="http://www.scipy.org/">SciPy</a> also contain well documented and functional modules.
   </p>
 
 <p align="justify">
-   As expected with this sort of thing it would be really cool if you would like to comment or e-mail me about
-    the ideas presented here (<b>computational, biological or mathematical</b>). Having
-    said all the above and without further ado, let us
-     begin.
+   As expected with this sort of thing it would be really cool if you would like to leave a comment or e-mail me about
+    the ideas presented here (<b>computational, biological or mathematical</b>). In any case, having
+    said all the above let&#8217;s begin without further ado.
  </p>
 
 <h2 id="index">Index</h2>
@@ -94,7 +93,7 @@ not be considering any co-evolutionary processes.
 <p align="justify">
 The genes responsible for the host-pathogen interaction are what we will call here <b>effector genes</b> (EG), we will assume
  that these EGs encode proteins which mediate the biochemical processes which allow the pathogen  to extract resources
-  from the host, by establishing links with <b>target units</b> (TU) or proteins within the host.
+  from the host, by establishing links with <b>target units</b> (TU) or molecules within the host.
 </p>
 
 <h3 id="a-idgenesamodel-genes-and-genomes"><a id="Genes"></a>Model Genes and Genomes.</h3>
@@ -110,9 +109,10 @@ some length $L&lt;K_T$, such as  $h_1=(1,10,100,1000)$ and $h_2=(20,90,835)$.
 
 <p align="justify">
 In python this can be achieved efficiently in a number of different ways. In order to
-illustrate this and to introduce the way in which we will use the modules we will be using in the model,
- I will write a function which will return lists of TU labels, by passing to it the length
- of the list $L$, the value $K_T$ and the handler for the random number generators (rk in the code).
+illustrate one method and to introduce the way in which we will be using the modules we write for the model,
+I will write a function which will create lists of TU numbers with no repeated elements. The function will take
+ three arguments: the length of the list $L$, the value $K_T$ and the handler for the random number generator which we
+ will call rk.
  The function looks like:
 </p>
 
@@ -167,19 +167,20 @@ illustrate this and to introduce the way in which we will use the modules we wil
 </span></code></pre></td></tr></table></div></figure></p>
 
 <p align="justify">
-Before carrying on a word of warning must be said. Python is a very easy
- language to use but It must be  recalled at all times that
-the <b>indentation</b> level of the statements matters, if it is
-not correct the code will not work. So keep that in mind always.
+Although Python is a very easy
+ language to use, a word of caution most be said at this stage.
+  In Python we should be aware of
+the <b>indentation</b> level of the statements at all times! Indeed,
+this is one of those scripting languages in which indentation matters, and if it is
+not correct the code will not work. So keep it in mind always.
 </p>
 
 <p align="justify">
-I called the function &#8220;NEWHOST&#8221;, and store it in a file named
+The function is called NEWHOST, and saved it in a file named
  <b>newhost.py</b>. This and every other
- file related to the model will be stored  in a folder called <b>codes</b>.
- Of particular interest
-  will be a file called <b>hpmodel.py</b> which I will use to import every function separately. To
-  do so in the case of the hosts functions it must contain the line:
+ file related to the model will be placed in a folder called <b>codes</b>.
+ Of particular interest is a file named as <b>hpmodel.py</b> which I will use to import every function separately.
+ For instance to import the host generating function we must add to it the line:
 </p>
 
 <p><figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
@@ -333,38 +334,103 @@ similar to:
 </code></p>
 
 <p align="justify">
-These list of integers will represent the target proteins and processes which
-can be accessed by pathogens, once calculated they will remain fixed and it will
-be up to the plasticity of the pathogen&#8217;s genome to determine if it can
-adapt and invade the host after shifting from a previous one.
+Once we have a function to generate lists of TUs, which  we will be
+considering these as the inner degrees of freedom of our model hosts, we now
+move into describing in detail our model pathogen genomes
 </p>
 
 <h3 id="a-idefaii-effector-units"><a id="EF"></a>II. Effector Units.</h3>
 
 <p align="justify">
-We will define EGs is by a set of attributes rather than its particular
-nucleotide sequence. For instance, we will consider its number of bases (length),
-the existence and strength of links between the EG and a particular list of TUs
-in a  host, etc. Next we describe every attribute in detail, starting with
-the adjacency list of an EG.
+As stated earlier, we are interested in the <b>structural aspects</b> of the
+pathogen&#8217;s genome evolution. We are not addressing directly the dynamics of
+ gene frequencies which is described by the theory of population genetics. We do
+ consider that the changes induced in the genome are the results of processes such as
+ <b>mutation</b>, <b>selection</b>, <b>drift</b> coupled with dynamics at a different
+ scales such as <b>horizontal gene transfer</b> every single process  will be
+ explained  in detail the forthcoming sections.
+</p>
+
+<p align="justify">
+The first  we would like to introduce is the model for EGs. We will define EGs by a
+number of attributes rather than its particular nucleotide sequence. For instance, we will consider its number of bases (length),
+the existence and strength of links between the EG and its particular list of TUs
+within a  host, etc.
 </p>
 
 <p><strong>Adjacency lists.</strong></p>
 
 <p align="justify">
-The  adjacency set of a particular EG, is
-defined as the list of TUs for which the effector is capable of establishing biochemical
- links and gain resources. To construct the adjacency set of a given effector we introduce
-  a parameter $c \in (0,1)$ which will allow
-  us to assign the initial number of targets a given EG will be able to access out
-  of the $K_T$ possible choices available in the  <b>universal</b> set $\mathcal{T}$.
+First and foremost we will introduce the list of possible targets a particular EG is
+able to <b>connect</b> to out of the universal set $\mathcal{T}$. We call this list the
+EG&#8217;s   adjacency list. To construct the adjacency set of a given effector we introduce
+  a parameter $c \in (0,1)$ which we will use to assign the initial number of targets
+in the list <b>accesible</b> to that effector.
   </p>
 <p align="justify">
-of resources for the pathogen. To do so we sample numbers $n_i$ from a uniform distributions of
-integers between $1$ and $cK_T$, for every EG $i$ present in the pathogen&#8217;s genome.
+  If we want the initial number of TU&#8217;s of every EGs present in the genome  to be (on average) equal to
+  $cK_T$, we  need to sample numbers $n_i$ from a binomial distribution with parameters
+  $c$ and $K_T$. Then the  initial adjacency list for
+  each EG can be generated by using our function NEWHOST passing to it $n_i$  and $K_T$, for example:
+</p>
+
+<p><figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+</pre></td><td class='code'><pre><code class='python'><span class='line'><span class="o">&lt;/</span><span class="n">p</span><span class="o">&gt;</span>
+</span><span class='line'>
+</span><span class='line'><span class="o">&lt;</span><span class="n">p</span><span class="o">&gt;</span><span class="k">print</span> <span class="n">C</span><span class="p">,</span> <span class="n">Kh</span><span class="p">,</span> <span class="n">Lwn</span>
+</span><span class='line'><span class="n">rk2</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">RandomState</span><span class="p">(</span><span class="n">SEED</span><span class="p">)</span><span class="o">.</span><span class="n">binomial</span><span class="p">(</span><span class="n">Kh</span><span class="p">,</span><span class="n">C</span><span class="p">,</span><span class="mi">10</span><span class="p">)</span>
+</span><span class='line'><span class="k">print</span> <span class="n">rk2</span>
+</span><span class='line'><span class="k">for</span> <span class="n">ni</span> <span class="ow">in</span> <span class="n">rk2</span><span class="p">:</span>
+</span><span class='line'>    <span class="n">li</span><span class="o">=</span><span class="n">mda</span><span class="o">.</span><span class="n">newhost</span><span class="o">.</span><span class="n">NEWHOST</span><span class="p">(</span><span class="n">ni</span><span class="p">,</span><span class="n">Kh</span><span class="p">,</span><span class="n">rk</span><span class="p">)</span>
+</span><span class='line'>    <span class="k">print</span> <span class="n">ni</span><span class="p">,</span> <span class="n">li</span>
+</span></code></pre></td></tr></table></div></figure></p>
+
+<p>Which should produce an output similar to:</p>
+
+<p><code>
+0.01 500 5.0
+[4 5 4 4 7 2 7 4 2 8]
+4 [113L, 301L, 319L, 373L]
+5 [128L, 133L, 300L, 317L, 409L]
+4 [30L, 46L, 314L, 366L]
+4 [247L, 352L, 362L, 394L]
+7 [35L, 154L, 218L, 248L, 327L, 353L, 395L]
+2 [355L, 456L]
+7 [250L, 278L, 318L, 350L, 372L, 438L, 450L]
+4 [49L, 196L, 255L, 476L]
+2 [219L, 461L]
+8 [93L, 167L, 194L, 308L, 388L, 396L, 403L, 410L]
+</code></p>
+
+<p align="justify">
+The above example shows the way we will generate the initial adjacency list for every EG in a genome.These list will
+determine if the effector is able or not to gain resources from the host, by comparing the elements present in its  
+list with the ones present at the  hosts.
+</p>
+
+<p align="justify">
+The adjacency lists are not the only attribute we will be considering to determine interactions between a
+give EGs and a host. We will also like the strength of such interaction to be evolving quantities.
 </p>
 
 <p><strong>Link Weights and Effector Scores.</strong></p>
+
+<p align="justify">
+To quantify the host-pathogen interaction dynamics is perhaps the most complicated
+aspect when one attempts to build up models  which operate at this <b>mesoscopic</b> level of description. To do so
+we will introduce two quantities which we call the <b>effector-target link scores</b> denoted by $s_{e,t}$ and the effector-target
+  gain $g_{e,t}$. The former attempt to capture how good does an effector is in obtaining resources for the pathoghen.  
+</p>
+
+<p align="justify">
+</p>
 
 <h3 id="a-idteaiii-transposable-elements-and-non-coding-units"><a id="TE"></a>III. Transposable Elements and Non-coding Units</h3>
 
@@ -377,11 +443,11 @@ integers between $1$ and $cK_T$, for every EG $i$ present in the pathogen&#8217;
 
 <ol>
   <li>
-    <p><a name="ipyth"></a><a href="http://ipython.org">Fernando Pérez, Brian E. Granger, IPython: A System for Interactive Scientific Computing,
+    <p><a name="ipyth"></a><a target="_blank" href="http://ipython.org">Fernando Pérez, Brian E. Granger, IPython: A System for Interactive Scientific Computing,
   Computing in Science and Engineering, vol. 9, no. 3, pp. 21-29, May/June 2007, doi:10.1109/MCSE.2007.53. URL: http://ipython.org</a></p>
   </li>
   <li>
-    <p><a name="gsl"></a><a href="http://www.gnu.org/software/gsl/"> M. Galassi et al, GNU Scientific Library Reference Manual (3rd Ed.), ISBN 0954612078.
+    <p><a name="gsl"></a><a target="_blank" href="http://www.gnu.org/software/gsl/"> M. Galassi et al, GNU Scientific Library Reference Manual (3rd Ed.), ISBN 0954612078.
 If you want to give a url, URL: http://www.gnu.org/software/gsl/.</a></p>
   </li>
 </ol>
