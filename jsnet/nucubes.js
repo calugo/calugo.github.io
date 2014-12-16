@@ -1,6 +1,7 @@
 var container, stats;
 var camera, controls, scene, projector, renderer;
 var objects = [], plane;
+var nobjects= [], nlinks;
 var links = [];
 var spheres = [];
 var netjson = [];
@@ -82,6 +83,8 @@ function init() {
 
 
         object.name = netjson[i].amino;
+        object.col=netjson[i].colorid
+        object.codon= netjson[i].cod;
         //amnames.push(netjson[i]);
         object.castShadow = true;
         object.receiveShadow = true;
@@ -112,11 +115,13 @@ function init() {
                     //links.push(r1);
                     //links.push(r2);
                     if (netjson[i].amino != netjson[k].amino) {
-                        var material = new THREE.LineBasicMaterial({color: 0.0 * 0x0000ff});
+                        var material = new THREE.LineBasicMaterial({color: 0.0 * 0x0000ff, opacity: 0.25,});
                     }
                     if (netjson[i].amino == netjson[k].amino) {
-                        var material = new THREE.LineBasicMaterial({color: 0.5 * 0x0000ff});
+                        var material = new THREE.LineBasicMaterial({color: 0.5 * 0x0000ff,linewidth: 1.5, opacity: 0.5});
+
                     }
+                    material.transparent = true;
                     var line = new THREE.Line(geometry, material);
 
                     objects.forEach(function (obj) {
@@ -129,7 +134,7 @@ function init() {
                     });
 
 
-                    line.myId = tj;
+                    line.myId = netjson[i].cod+tj;
                     scene.add(line);
                     links.push(line);
                     break;
@@ -146,7 +151,57 @@ function init() {
     }));
     plane.visible = false;
     scene.add(plane);
+    //////////////////////////////////////////////////////simplified network
+    var amnamesx = [];
+    amnamesx.push(netjson[0].amino);
 
+    for (var i = 1; i < netjson.length; i++) {
+        var b = 0;
+        for (var j = 0; j < i; j++) {
+            if (amnamesx[j] == netjson[i].amino) {
+                b = 1;
+                break;
+            }
+        }
+
+        if (b == 0) {
+            amnamesx.push(netjson[i].amino);
+        }
+    }
+
+    var geom = new THREE.SphereGeometry(50);
+
+    //console.log("L",amnamesx.length);
+
+    for (var i=0; i< amnamesx.length; i++){
+      console.log(amnamesx[i]);
+      xnx=0.0;
+      ynx=0.0;
+      znx=0.0;
+      nnx=0.0;
+      for (var j=0; j< objects.length; j++){
+          //console.log(objects[j].name);
+          if (objects[j].name==amnamesx[i]){
+            //console.log("HOLA")
+            xnx+=objects[j].position.x;
+            ynx+=objects[j].position.y;
+            znx+=objects[j].position.z;
+            colx=objects[j].col;
+            nnx+=1.0;
+          }
+      }
+      console.log(xnx)
+      var objectx = new THREE.Mesh(geom, new THREE.MeshLambertMaterial({color: (parseFloat(colx) / 22.0) * 0xffffff}));
+      objectx.material.ambient = object.material.color;
+      objectx.position.x = xnx/nnx; //xn;//netjson[i].x;//Math.random() * 1000 - 500;
+      objectx.position.y = ynx/nnx; //yn;//netjson[i].z;//Math.random() * 600 - 300;
+      objectx.position.z = znx/nnx;//netjson[i].y;//Math.random() * 800 - 400;
+      objectx.visible = false;
+      scene.add(objectx);
+      nobjects.push(objectx);
+    }
+
+    ////
     projector = new THREE.Projector();
 
     renderer = new THREE.WebGLRenderer({antialias: true});
@@ -164,7 +219,7 @@ function init() {
     info.style.top = '10px';
     info.style.width = '100%';
     info.style.textAlign = 'center';
-    info.innerHTML = '<a href="http://threejs.org" target="_blank">three.js</a> Bio-Networks Explorer project';
+    info.innerHTML = 'Bio-Networks Project (<a href="http://threejs.org" target="_blank">three.js</a>)';
     container.appendChild(info);
 
     stats = new Stats();
@@ -178,6 +233,8 @@ function init() {
 
     //
     createMenu();
+    // displaycodinfo(['','','','']);
+
     //
     window.addEventListener('resize', onWindowResize, false);
 
@@ -226,11 +283,76 @@ function onDocumentMouseMove(event) {
 
 
 
-            if (INTERSECTED) INTERSECTED.material.color.setHex(INTERSECTED.currentHex);
+            if (INTERSECTED) INTERSECTED.material.emissive.setHex(INTERSECTED.currentHex);
 
             INTERSECTED = intersects[0].object;
-            INTERSECTED.currentHex = INTERSECTED.material.color.getHex();
+            INTERSECTED.currentHex = INTERSECTED.material.emissive.getHex();
+            INTERSECTED.material.emissive.setHex( 0xff0000 );
 
+            //////////////////////////////////////////////////////////
+            for(var qn=0; qn< INTERSECTED.links.length; qn++){
+                zn=INTERSECTED.codon+INTERSECTED.links[qn];
+                console.log(zn);
+                for(var pn=0; pn<links.length;pn++){
+                  if (zn==links[pn].myId){
+                    console.log(zn);
+                    links[pn].material.linewidth=5.0;
+                  }
+              }}
+              //links.forEach(function (link) {
+              //    link.geometry.verticesNeedUpdate = true;
+            //////////////////////////////////////////////////////////
+
+
+            mux=1
+            if (mux==1){
+                        console.log(INTERSECTED.codon);
+                        console.log(INTERSECTED.name);
+                        console.log(INTERSECTED.links);
+                        var nn=[];
+                        var na=[];
+                        var sk, qn;
+                        for(var ik = 0; ik < INTERSECTED.links.length; ik++) {
+                          sk=INTERSECTED.links[ik]
+                          //console.log(sk)
+                          for(var jk=0;jk<netjson.length;jk++){
+                            if (netjson[jk].nodeid==sk){nn.push(netjson[jk].cod);
+                                                        na.push(netjson[jk].amino);}
+                          }
+                        }
+                        //console.log(nn);
+                        //console.log(na);
+                        var nax=[];
+                        nax.push(na[0]);
+                        for(var mi=0; mi<na.length;mi++){
+                          var rn=0;
+                          for(var mj=0;mj<nax.length;mj++){
+                            if(na[mi]==nax[mj]){rn=1;
+                                                break;}
+                          }
+
+                          if (rn==0){
+                                    nax.push(na[mi])
+                                    }
+
+                      }
+                      //  console.log(nn)
+                      //  console.log(nax)
+                        $('#ccc').find('span').text(INTERSECTED.codon);
+                        $('#nnn').find('span').text(nn);
+                        $('#aaa').find('span').text(INTERSECTED.name);
+                        $('#anan').find('span').text(nax);
+                       //console.log(nax)
+                       //var x = document.getElementsByClassName("seqn");
+                       //console.log(x)
+                       //var y = x.textContent
+                       //console.log(y)
+                      }
+            //mux=0
+            //createMenu();
+            //var bt = document.createElement('box');
+            //button.innerHTML = netjson[i].amino;
+            //br.innerHTML = "dddddd";//amnames[i];
 
             plane.position.copy(INTERSECTED.position);
             plane.lookAt(camera.position);
@@ -243,7 +365,13 @@ function onDocumentMouseMove(event) {
 
     } else {
 
-        if (INTERSECTED) INTERSECTED.material.color.setHex(INTERSECTED.currentHex);
+        if (INTERSECTED) INTERSECTED.material.emissive.setHex(INTERSECTED.currentHex);
+        //for(var qn=0; qn< INTERSECTED.links.length; qn++){
+        //    zn=INTERSECTED.codon+INTERSECTED.links[qn];
+        //    console.log(zn);
+        for(var pn=0; pn<links.length;pn++){
+            links[pn].material.linewidth=1.0;    
+          }
 
         INTERSECTED = null;
 
@@ -302,6 +430,7 @@ function onDocumentMouseUp(event) {
 
         links.forEach(function (link) {
             link.geometry.verticesNeedUpdate = true;
+            //link.geometry.material.transparent= false;
         });
 
 
@@ -415,4 +544,37 @@ function createMenu() {
 
 }
 
+//function displaycodinfo(codondata){
+//
+//  var codon = document.createElement('div');
+//  codon.className='codon';
+  //codon.style.backgroundColor = rgba(0,127,127,0.75 );
+
+//  var seqn = document.createElement('div');
+//  seqn.className='seqn';
+//  seqn.textContent='CODON:'+codondata[0];//'CODON: ';
+//  codon.appendChild(seqn);
+
+//  var neighbohrs = document.createElement('div');
+//  neighbohrs.className = 'neighbohrs';
+//  neighbohrs.textContent= 'N.NEIGHBOHRS: '+codondata[1];//'AMINOACID:';*/
+  /*details.innerHTML= '<br>and <br>othe stuff';*/
+//  codon.appendChild(neighbohrs)
+
+
+//  var amino = document.createElement('div');
+//  amino.className = 'amino';
+//  amino.textContent= 'AMINOACID: '+codondata[2];//'AMINOACID:';*/
+  /*details.innerHTML= '<br>and <br>othe stuff';*/
+//  codon.appendChild(amino)
+
+//  var aminoneighbohrs = document.createElement('div');
+//  aminoneighbohrs.className = 'aminoneighbohrs';
+//  aminoneighbohrs.textContent= 'A. N.NEIGHBOHRS: '+codondata[3];//'AMINOACID:';*/
+  /*details.innerHTML= '<br>and <br>othe stuff';*/
+//  codon.appendChild(aminoneighbohrs)
+
+//  statsbox.appendChild(codon);
+
+//}
 //
