@@ -4,7 +4,7 @@
   <title><![CDATA[Category: Atrial Cells | Carlos A. Lugo's site]]></title>
   <link href="http://calugo.github.io/blog/categories/atrial-cells/atom.xml" rel="self"/>
   <link href="http://calugo.github.io/"/>
-  <updated>2014-12-16T14:33:09+00:00</updated>
+  <updated>2015-01-16T11:19:37+00:00</updated>
   <id>http://calugo.github.io/</id>
   <author>
     <name><![CDATA[Carlos A Lugo Vélez]]></name>
@@ -18,7 +18,7 @@
     <link href="http://calugo.github.io/blog/2014/10/14/cai-dynamics-in-atrial-tissues/"/>
     <updated>2014-10-14T16:58:32+01:00</updated>
     <id>http://calugo.github.io/blog/2014/10/14/cai-dynamics-in-atrial-tissues</id>
-    <content type="html"><![CDATA[<h2 id="cellcellcellcelltissue----more---">Cell+Cell+Cell+…+Cell=Tissue! <!-- more --></h2>
+    <content type="html"><![CDATA[<h2 id="cellcellcellcellneqtissue----more---">Cell+Cell+Cell+…+Cell$\neq$Tissue! <!-- more --></h2>
 
 <p align="justify">
 This is an ongoing project, and it consists of investigating the emergent phenomena resulting from coupling
