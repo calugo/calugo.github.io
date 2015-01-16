@@ -6,7 +6,7 @@ comments: true
 categories: [python animations, Cardiac Tissue Models, Calcium Alternans, Cardiac Waves, Calcium Dynamics in the Human Heart, Cardiac Dynamics, Atrial Cells, Ryanodyne Receptors, Statistical Physics, Complexity]
 image: "/images/Cai2png.png"
 ---
-##Cell+Cell+Cell+...+Cell=Tissue! <!-- more -->
+##Cell+Cell+Cell+...+Cell$\neq$Tissue! <!-- more -->
 
 <p align="justify">
 This is an ongoing project, and it consists of investigating the emergent phenomena resulting from coupling
