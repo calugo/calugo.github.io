@@ -82,5 +82,8 @@ Be sure that your browser supports WebGL and that it is enabled (help <a href="h
 
 <p>
 
- <a target="_blank" href="{{ root_url }}/jsnet/index.html"><b>THREE.JS-WEBGL INTERACTIVE GENETIC CODE NETWORK EXPLORER HERE</b></a>.  
+ <a target="_blank" href="{{ root_url }}/jsnet/index.html"><b>THREE.JS-WEBGL INTERACTIVE GENETIC CODE NETWORK EXPLORER HERE</b></a>. 
+</p>
+<p> 
+ <a target="_blank" href="{{ root_url }}/rna12net/index.html"><b>THREE.JS-WEBGL RNA NETWORK (L=12) HERE</b></a>.  
 </p>
