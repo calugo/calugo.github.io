@@ -4,7 +4,7 @@
   <title><![CDATA[Category: Evolution | Carlos A. Lugo's site]]></title>
   <link href="http://calugo.github.io/blog/categories/evolution/atom.xml" rel="self"/>
   <link href="http://calugo.github.io/"/>
-  <updated>2015-01-16T11:19:37+00:00</updated>
+  <updated>2015-05-22T10:00:42+01:00</updated>
   <id>http://calugo.github.io/</id>
   <author>
     <name><![CDATA[Carlos A Lugo Vélez]]></name>
@@ -94,7 +94,10 @@ Be sure that your browser supports WebGL and that it is enabled (help <a href="h
 
 <p>
 
- <a target="_blank" href="/jsnet/index.html"><b>THREE.JS-WEBGL INTERACTIVE GENETIC CODE NETWORK EXPLORER HERE</b></a>.  
+ <a target="_blank" href="/jsnet/index.html"><b>THREE.JS-WEBGL INTERACTIVE GENETIC CODE NETWORK EXPLORER HERE</b></a>. 
+</p>
+<p> 
+ <a target="_blank" href="/rna12net/index.html"><b>THREE.JS-WEBGL RNA NETWORK (L=12) HERE</b></a>.  
 </p>
 ]]></content>
   </entry>
