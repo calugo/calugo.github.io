@@ -2,10 +2,10 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
 
   <title><![CDATA[Category: Atrial Cells | Carlos A. xLugo's site]]></title>
-  <link href="http://calugo.github.io/blog/categories/atrial-cells/atom.xml" rel="self"/>
-  <link href="http://calugo.github.io/"/>
-  <updated>2017-03-17T15:17:58+00:00</updated>
-  <id>http://calugo.github.io/</id>
+  <link href="https://calugo.github.io/blog/categories/atrial-cells/atom.xml" rel="self"/>
+  <link href="https://calugo.github.io/"/>
+  <updated>2017-03-17T15:24:31+00:00</updated>
+  <id>https://calugo.github.io/</id>
   <author>
     <name><![CDATA[Carlos A Lugo Vélez]]></name>
     
@@ -15,9 +15,9 @@
   
   <entry>
     <title type="html"><![CDATA[Calcium Dynamics in Atrial Tissues]]></title>
-    <link href="http://calugo.github.io/blog/2014/10/14/cai-dynamics-in-atrial-tissues/"/>
+    <link href="https://calugo.github.io/blog/2014/10/14/cai-dynamics-in-atrial-tissues/"/>
     <updated>2014-10-14T16:58:32+01:00</updated>
-    <id>http://calugo.github.io/blog/2014/10/14/cai-dynamics-in-atrial-tissues</id>
+    <id>https://calugo.github.io/blog/2014/10/14/cai-dynamics-in-atrial-tissues</id>
     <content type="html"><![CDATA[<h2 id="cellcellcellcellneqtissue----more---">Cell+Cell+Cell+…+Cell$\neq$Tissue! <!-- more --></h2>
 
 <p align="justify">
@@ -209,9 +209,9 @@ web usage perhaps is better to use &#8220;webm&#8221; (using ffmpeg -i V2D.mp4 V
   
   <entry>
     <title type="html"><![CDATA[Calcium Dynamics in Atrial Cells]]></title>
-    <link href="http://calugo.github.io/blog/2014/10/14/models-of-calcium-release-in-the-human-atria/"/>
+    <link href="https://calugo.github.io/blog/2014/10/14/models-of-calcium-release-in-the-human-atria/"/>
     <updated>2014-10-14T16:53:29+01:00</updated>
-    <id>http://calugo.github.io/blog/2014/10/14/models-of-calcium-release-in-the-human-atria</id>
+    <id>https://calugo.github.io/blog/2014/10/14/models-of-calcium-release-in-the-human-atria</id>
     <content type="html"><![CDATA[<h2 id="avast-me-hearties----more-------modelling-cardiac-dynamics">Avast Me Hearties! <!-- more --> -  Modelling cardiac dynamics.</h2>
 
 <p align="justify">

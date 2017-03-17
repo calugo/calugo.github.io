@@ -2,10 +2,10 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
 
   <title><![CDATA[Category: Latex | Carlos A. xLugo's site]]></title>
-  <link href="http://calugo.github.io/blog/categories/latex/atom.xml" rel="self"/>
-  <link href="http://calugo.github.io/"/>
-  <updated>2017-03-17T15:17:58+00:00</updated>
-  <id>http://calugo.github.io/</id>
+  <link href="https://calugo.github.io/blog/categories/latex/atom.xml" rel="self"/>
+  <link href="https://calugo.github.io/"/>
+  <updated>2017-03-17T15:24:31+00:00</updated>
+  <id>https://calugo.github.io/</id>
   <author>
     <name><![CDATA[Carlos A Lugo Vélez]]></name>
     
@@ -15,9 +15,9 @@
   
   <entry>
     <title type="html"><![CDATA[Setting Up the Site]]></title>
-    <link href="http://calugo.github.io/blog/2014/10/13/setting-up-the-site/"/>
+    <link href="https://calugo.github.io/blog/2014/10/13/setting-up-the-site/"/>
     <updated>2014-10-13T00:37:47+01:00</updated>
-    <id>http://calugo.github.io/blog/2014/10/13/setting-up-the-site</id>
+    <id>https://calugo.github.io/blog/2014/10/13/setting-up-the-site</id>
     <content type="html"><![CDATA[<h2 id="this-is-not-a-tutorial-but-----more---">This is not a tutorial but … <!-- more --></h2>
 <p align="justify">
 I am more than happy to answer and discuss any questions related to the features of the blog. Please feel free to contact me or comment where appropiate. The amount of tutorials out there describing how to set up a github page or an octopress site is huge, and it is often written by people a lot more competent than me in the ever evolving web-desgin universe.

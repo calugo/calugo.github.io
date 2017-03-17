@@ -2,10 +2,10 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
 
   <title><![CDATA[Carlos A. xLugo's site]]></title>
-  <link href="http://calugo.github.io/atom.xml" rel="self"/>
-  <link href="http://calugo.github.io/"/>
-  <updated>2017-03-17T15:17:58+00:00</updated>
-  <id>http://calugo.github.io/</id>
+  <link href="https://calugo.github.io/atom.xml" rel="self"/>
+  <link href="https://calugo.github.io/"/>
+  <updated>2017-03-17T15:24:31+00:00</updated>
+  <id>https://calugo.github.io/</id>
   <author>
     <name><![CDATA[Carlos A Lugo Vélez]]></name>
     
@@ -15,9 +15,9 @@
   
   <entry>
     <title type="html"><![CDATA[Genome Evolution in Host-Pathogen Systems]]></title>
-    <link href="http://calugo.github.io/blog/2014/10/14/genome-evolution-in-host-pathogen-systems/"/>
+    <link href="https://calugo.github.io/blog/2014/10/14/genome-evolution-in-host-pathogen-systems/"/>
     <updated>2014-10-14T17:54:02+01:00</updated>
-    <id>http://calugo.github.io/blog/2014/10/14/genome-evolution-in-host-pathogen-systems</id>
+    <id>https://calugo.github.io/blog/2014/10/14/genome-evolution-in-host-pathogen-systems</id>
     <content type="html"><![CDATA[<h2 id="finally-the-host-pathogen-entry----more---">Finally the host pathogen entry! <!-- more --></h2>
 <p align="justify">
   This entry is the reason behind setting up the blog. The idea is to build up a mathematical-computational
@@ -497,9 +497,9 @@ If you want to give a url, URL: http://www.gnu.org/software/gsl/.</a></p>
   
   <entry>
     <title type="html"><![CDATA[Evolution and Genotype-Phenotype Mappings (RNA Networks)]]></title>
-    <link href="http://calugo.github.io/blog/2014/10/14/evolution-and-genotype-phenotype-mappings/"/>
+    <link href="https://calugo.github.io/blog/2014/10/14/evolution-and-genotype-phenotype-mappings/"/>
     <updated>2014-10-14T16:59:48+01:00</updated>
-    <id>http://calugo.github.io/blog/2014/10/14/evolution-and-genotype-phenotype-mappings</id>
+    <id>https://calugo.github.io/blog/2014/10/14/evolution-and-genotype-phenotype-mappings</id>
     <content type="html"><![CDATA[<h2 id="if-you-want-to-understand-function-study-structure---more---">If you want to understand function, study structure.<!-- more --></h2>
 
 <p align="justify">
@@ -531,7 +531,7 @@ a well defined <b>genotype-phenotype mapping</b>, this is not easy to satisfy fo
 This project is very much work in progress, but because I like to share code and data, I prepared
 an Ipython notebook which illustrates the ideas of the previous paragraph (construction of the phenotype landscape)
 for a very special system: <b>the genetic code</b>. For the case of RNA, a nice example can be seen used as the
-<a href="http://calugo.github.io/index.html">banner on the main page of this site.</a>
+<a href="https://calugo.github.io/index.html">banner on the main page of this site.</a>
 </p>
 
 <p align="justify">
@@ -552,7 +552,7 @@ code (Github repo).
 </p>
 
 <div style="text-align: center;">
-<a target="_blank" href="https://github.com/calugo/RNA-NETS"><img src="http://calugo.github.io/images/amino2.png" width="700" target="_blank" /></a>
+<a target="_blank" href="https://github.com/calugo/RNA-NETS"><img src="https://calugo.github.io/images/amino2.png" width="700" target="_blank" /></a>
 </div>
 
 <h2 id="webgl-interactive-explorer">WebGL interactive explorer</h2>
@@ -576,19 +576,19 @@ Be sure that your browser supports WebGL and that it is enabled (help <a href="h
 
 <p>
 
- <a target="_blank" href="http://calugo.github.io/jsnet/index.html"><b>THREE.JS-WEBGL INTERACTIVE GENETIC CODE NETWORK EXPLORER HERE</b></a>. 
+ <a target="_blank" href="https://calugo.github.io/jsnet/index.html"><b>THREE.JS-WEBGL INTERACTIVE GENETIC CODE NETWORK EXPLORER HERE</b></a>. 
 </p>
 <p> 
- <a target="_blank" href="http://calugo.github.io/rna12net/index.html"><b>THREE.JS-WEBGL RNA NETWORK (L=12) HERE</b></a>.  
+ <a target="_blank" href="https://calugo.github.io/rna12net/index.html"><b>THREE.JS-WEBGL RNA NETWORK (L=12) HERE</b></a>.  
 </p>
 ]]></content>
   </entry>
   
   <entry>
     <title type="html"><![CDATA[Calcium Dynamics in Atrial Tissues]]></title>
-    <link href="http://calugo.github.io/blog/2014/10/14/cai-dynamics-in-atrial-tissues/"/>
+    <link href="https://calugo.github.io/blog/2014/10/14/cai-dynamics-in-atrial-tissues/"/>
     <updated>2014-10-14T16:58:32+01:00</updated>
-    <id>http://calugo.github.io/blog/2014/10/14/cai-dynamics-in-atrial-tissues</id>
+    <id>https://calugo.github.io/blog/2014/10/14/cai-dynamics-in-atrial-tissues</id>
     <content type="html"><![CDATA[<h2 id="cellcellcellcellneqtissue----more---">Cell+Cell+Cell+…+Cell$\neq$Tissue! <!-- more --></h2>
 
 <p align="justify">
@@ -626,7 +626,7 @@ $[Ca^{2+}]_{i}(x,y,t):$
 </p>
 <div style="text-align: center;">
 <video width="320" height="240" controls="">
- <source src="http://calugo.github.io/movies/CAI2D.webm" type="video/mp4" />
+ <source src="https://calugo.github.io/movies/CAI2D.webm" type="video/mp4" />
 </video>
 </div>
 
@@ -635,7 +635,7 @@ And, $V_m(x,y,t):$
 </p>
 <div style="text-align: center;">
 <video width="320" height="240" controls="">
- <source src="http://calugo.github.io/movies/V2D.webm" type="video/mp4" />
+ <source src="https://calugo.github.io/movies/V2D.webm" type="video/mp4" />
  Your browser does not support the video tag.
 </video>
 </div>
@@ -780,9 +780,9 @@ web usage perhaps is better to use &#8220;webm&#8221; (using ffmpeg -i V2D.mp4 V
   
   <entry>
     <title type="html"><![CDATA[Calcium Dynamics in Atrial Cells]]></title>
-    <link href="http://calugo.github.io/blog/2014/10/14/models-of-calcium-release-in-the-human-atria/"/>
+    <link href="https://calugo.github.io/blog/2014/10/14/models-of-calcium-release-in-the-human-atria/"/>
     <updated>2014-10-14T16:53:29+01:00</updated>
-    <id>http://calugo.github.io/blog/2014/10/14/models-of-calcium-release-in-the-human-atria</id>
+    <id>https://calugo.github.io/blog/2014/10/14/models-of-calcium-release-in-the-human-atria</id>
     <content type="html"><![CDATA[<h2 id="avast-me-hearties----more-------modelling-cardiac-dynamics">Avast Me Hearties! <!-- more --> -  Modelling cardiac dynamics.</h2>
 
 <p align="justify">
@@ -820,7 +820,7 @@ transitions between states, such as <i>active/inactive</i> in which the recovery
 time $\tau_{rec}$ is the reciprocal number to the rate of occurrence  one of such transitions.
 </p>
 <div style="text-align: center;">
-<img src="http://calugo.github.io/images/BCNATRIA.png" width="700" />
+<img src="https://calugo.github.io/images/BCNATRIA.png" width="700" />
 <p> A)The model&#8217;s compartment schematics. B) RyRs states diagram.</p>
 </div>
 <p align="justify">
@@ -830,7 +830,7 @@ and the references therein
 </p>
 
 <div style="text-align: center;">
-<img src="http://calugo.github.io/images/BCNRESULTSFLT.png" width="700" />
+<img src="https://calugo.github.io/images/BCNRESULTSFLT.png" width="700" />
 <p>Some results obtained from varying the refractoriness: Bifurcations, Alternans, Hysteresis.
 </p>
 </div>
@@ -861,9 +861,9 @@ great site about virtual hearts maintained Liz Cherry and Flavio Fenton.
   
   <entry>
     <title type="html"><![CDATA[Setting Up the Site]]></title>
-    <link href="http://calugo.github.io/blog/2014/10/13/setting-up-the-site/"/>
+    <link href="https://calugo.github.io/blog/2014/10/13/setting-up-the-site/"/>
     <updated>2014-10-13T00:37:47+01:00</updated>
-    <id>http://calugo.github.io/blog/2014/10/13/setting-up-the-site</id>
+    <id>https://calugo.github.io/blog/2014/10/13/setting-up-the-site</id>
     <content type="html"><![CDATA[<h2 id="this-is-not-a-tutorial-but-----more---">This is not a tutorial but … <!-- more --></h2>
 <p align="justify">
 I am more than happy to answer and discuss any questions related to the features of the blog. Please feel free to contact me or comment where appropiate. The amount of tutorials out there describing how to set up a github page or an octopress site is huge, and it is often written by people a lot more competent than me in the ever evolving web-desgin universe.

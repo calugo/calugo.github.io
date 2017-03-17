@@ -2,10 +2,10 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
 
   <title><![CDATA[Category: Ipython | Carlos A. xLugo's site]]></title>
-  <link href="http://calugo.github.io/blog/categories/ipython/atom.xml" rel="self"/>
-  <link href="http://calugo.github.io/"/>
-  <updated>2017-03-17T15:17:58+00:00</updated>
-  <id>http://calugo.github.io/</id>
+  <link href="https://calugo.github.io/blog/categories/ipython/atom.xml" rel="self"/>
+  <link href="https://calugo.github.io/"/>
+  <updated>2017-03-17T15:24:31+00:00</updated>
+  <id>https://calugo.github.io/</id>
   <author>
     <name><![CDATA[Carlos A Lugo Vélez]]></name>
     
@@ -15,9 +15,9 @@
   
   <entry>
     <title type="html"><![CDATA[Genome Evolution in Host-Pathogen Systems]]></title>
-    <link href="http://calugo.github.io/blog/2014/10/14/genome-evolution-in-host-pathogen-systems/"/>
+    <link href="https://calugo.github.io/blog/2014/10/14/genome-evolution-in-host-pathogen-systems/"/>
     <updated>2014-10-14T17:54:02+01:00</updated>
-    <id>http://calugo.github.io/blog/2014/10/14/genome-evolution-in-host-pathogen-systems</id>
+    <id>https://calugo.github.io/blog/2014/10/14/genome-evolution-in-host-pathogen-systems</id>
     <content type="html"><![CDATA[<h2 id="finally-the-host-pathogen-entry----more---">Finally the host pathogen entry! <!-- more --></h2>
 <p align="justify">
   This entry is the reason behind setting up the blog. The idea is to build up a mathematical-computational
@@ -456,9 +456,9 @@ If you want to give a url, URL: http://www.gnu.org/software/gsl/.</a></p>
   
   <entry>
     <title type="html"><![CDATA[Evolution and Genotype-Phenotype Mappings (RNA Networks)]]></title>
-    <link href="http://calugo.github.io/blog/2014/10/14/evolution-and-genotype-phenotype-mappings/"/>
+    <link href="https://calugo.github.io/blog/2014/10/14/evolution-and-genotype-phenotype-mappings/"/>
     <updated>2014-10-14T16:59:48+01:00</updated>
-    <id>http://calugo.github.io/blog/2014/10/14/evolution-and-genotype-phenotype-mappings</id>
+    <id>https://calugo.github.io/blog/2014/10/14/evolution-and-genotype-phenotype-mappings</id>
     <content type="html"><![CDATA[<h2 id="if-you-want-to-understand-function-study-structure---more---">If you want to understand function, study structure.<!-- more --></h2>
 
 <p align="justify">
