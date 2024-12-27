@@ -1,9 +1,1 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Docs on My New Hugo Site</title><link>https://calugo.github.io/docs/</link><description>Recent content in Docs on My New Hugo Site</description><generator>Hugo -- gohugo.io</generator><language>en-us</language><copyright>© 2024</copyright><lastBuildDate>Fri, 27 Dec 2024 09:58:55 +0000</lastBuildDate><atom:link href="https://calugo.github.io/docs/index.xml" rel="self" type="application/rss+xml"/><item><title>Test</title><link>https://calugo.github.io/docs/test/</link><pubDate>Fri, 27 Dec 2024 09:58:55 +0000</pubDate><guid>https://calugo.github.io/docs/test/</guid><description>&lt;h2 class="relative group">test
-&lt;div id="test" class="anchor">&lt;/div>
-&lt;span
-class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
-&lt;a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
-style="text-decoration-line: none !important;" href="#test" aria-label="Anchor">#&lt;/a>
-&lt;/span>
-&lt;/h2>
-&lt;p>test&lt;/p></description></item></channel></rss>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Docs on Carlos's Website</title><link>https://calugo.github.io/docs/</link><description>Recent content in Docs on Carlos's Website</description><generator>Hugo -- gohugo.io</generator><language>en</language><copyright>© 2024 Carlos A. Lugo Ph.D.</copyright><lastBuildDate>Fri, 27 Dec 2024 09:58:55 +0000</lastBuildDate><atom:link href="https://calugo.github.io/docs/index.xml" rel="self" type="application/rss+xml"/><item><title>Test</title><link>https://calugo.github.io/docs/test/</link><pubDate>Fri, 27 Dec 2024 09:58:55 +0000</pubDate><guid>https://calugo.github.io/docs/test/</guid><description/></item></channel></rss>
