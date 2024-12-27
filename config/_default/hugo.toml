@@ -18,6 +18,8 @@ buildFuture = false
 
 enableEmoji = false
 
+timeout = 100 
+
 # googleAnalytics = "G-XXXXXXXXX"
 
 [pagination]
