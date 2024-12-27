@@ -18,11 +18,11 @@
 [[main]]
   name = "Experience"
   pageRef = "Experience/Resume"
-  
+
 [[main]]
   name = "About"
   pageRef = "About/Bio"
-#  weight = 20
+  weight = 20
 
 #[[main]]
 #  name = "Research and Science"
