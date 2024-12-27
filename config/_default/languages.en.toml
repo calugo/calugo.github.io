@@ -14,5 +14,5 @@ logo = "FaCE.png"
 [params.author]
 name="Carlos A. Lugo Ph.D."
 headline = "Physics, Maths and Computers."
-links = [ { hackster = "https://www.hackster.io/kupkasmale" }, { github = "https://github.com/calugo" }, { gitlab = "https://gitlab.com/calugo" }, { linkedin = "https://linkedin.com/in/carlos-a-lugo-velez" }, { orcid = "https://orcid.org/0000-0003-0095-566X" } ]
+links = [  {hackster = "https://www.hackster.io/kupkasmale"} , { github = "https://github.com/calugo" }, { gitlab = "https://gitlab.com/calugo" }, { linkedin = "https://linkedin.com/in/carlos-a-lugo-velez" }, { orcid = "https://orcid.org/0000-0003-0095-566X" } ]
 image = "FaCe.png"
