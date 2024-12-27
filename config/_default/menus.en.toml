@@ -19,9 +19,9 @@
   name = "Experience"
   pageRef = "Experience/Resume"
   
-#[[main]]
-#  name = "About"
-#  pageRef = "About/Bio"
+[[main]]
+  name = "About"
+  pageRef = "About/Bio"
 #  weight = 20
 
 #[[main]]
