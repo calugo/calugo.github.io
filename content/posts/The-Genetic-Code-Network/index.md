@@ -6,7 +6,7 @@ description: "a description"
 tags: ["Data Visualization", "two.js","three,js", "Molecular Evolution", "Networks"]
 ---
 
-<div style="text-align": justify>
+<div align = "justify">
 
 Studying molecular evolution presents a lot of opportunities
 to venture into interesting side quests, such as the content of this post. Here, I showcase ways to visualise complex networks with some degree of interactivity.
@@ -14,7 +14,7 @@ to venture into interesting side quests, such as the content of this post. Here,
 These little renderings were conceived for lectures, talks and videos and  rarely make their way into an academic publication, despite their didactic value. The reason is very simple, publications are a two dimensional, almost static version of media. However, technologies such as Jupyter, WebGL and other rendering backend libraries have been available for a long time now, and their corresponding api's made very easy to use for everybody.
 </div>
 
-<div style="text-align": justify>
+<div align = "justify">
 For the sake of brevity, let's cut to the case, here I am going through how and why I made renderings such as the ones below and what exactly these represent.
 </div>
 
@@ -27,7 +27,7 @@ For the sake of brevity, let's cut to the case, here I am going through how and 
 for a full session of fun, try it with a mouse on a separate tab.</i></b>
 </div>
 
-<div style="text-align: justify">
+<div align = "justify">
 
 The recommended way to play with the viewer, is on single window, which can be accessed <a href="https://calugo.github.io/RNA-NETS/" target="_blank">here</a> and a legacy version with draggable nodes  <a href="https://calugo.github.io/RNA-NETS/OLDNET" target="_blank">here</a>
 </div>
@@ -200,7 +200,7 @@ The properties of resultant graph or <b>phenotype landscape</b> allow us to trea
 {{<gallery>}}
   <img src="gallery/Union2.png" class="grid-w100" />
 {{</gallery>}}
-<div style="text-align: center"><b> <i>Detail of the connections between two RNA secondary structures of length 12. Showing all the sequences which fold into such structures and connected to other sequences if these are one mutation away. Again, we can see that it is possible to mutate inside and outside the secondary structures, the folding temperature for this structures is T=27 C.</i></b></div>
+<div style="text-align: justify"><b> <i>Detail of the connections between two RNA secondary structures of length 12. Showing all the sequences which fold into such structures and connected to other sequences if these are one mutation away. Again, we can see that it is possible to mutate inside and outside the secondary structures, the folding temperature for this structures is T=27 C.</i></b></div>
 
 <div  align="justify">
 
