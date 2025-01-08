@@ -8,24 +8,24 @@ tags: ["Data visualization", "Microtubules", "Feature extraction", "Image analys
 
 <div align = "justify">
 
-In this post I describe a small, yet fun, analysis which might be of use to researchers in the field of microtubules. The goal is to extract estimates of the amount of polymer and  linear densities  of cortical network data from cells evolving in time such as the one below, courtesy of the [Ram Dixit lab.](https://sites.wustl.edu/dixitlab/) 
+In this post I describe a small, yet fun, analysis that might be of use to researchers in the field of microtubules. The goal is to extract estimates of the amount and length of polymer from images of cortical networks such as the one below, courtesy of the [Ram Dixit lab.](https://sites.wustl.edu/dixitlab/) 
 
-The quantities estimated here are can be used to postulate, inform, verify or constraint theoretical or computational models of cytokeletal dynamics. Such model can become quite complicated, so, with these estimations we can keep the simulations within feasible biological, physiological and mechanical limits.
+The polymer quantities estimated here can be used to postulate, inform, verify or constrain theoretical, mathematical and computational models of cytokeletal dynamics. Such models can become quite complicated, so, with these estimations are aimed to keep, calibrate or test the models to be within feasible biological, physiological and mechanical limits.
 
 
 {{<gallery>}}
   <img src="gallery/cell.gif" class="grid-w100" />
 {{</gallery>}}<div style="text-align: justify"><b> <i>
-Time evolution of a cortical microtubule networks in plant hypocotyl cells. This system is an example of a biological complex system out of equilibrium.</i></b>
+Time evolution of cortical microtubule networks in plant hypocotyl cells. This system is an example of a biological complex system out of equilibrium.</i></b>
 
 
-The networks shown are flourescent microscopy images which label tubulin. As it can be seen, the filaments (microtubules) polymerise and de-polymerise at the tip.  These are anchored to the cell membrane, in the inner surface of the cell wall.
+The networks shown are microscopy images in which the flourescent signal is labeling the tubulin which composes the polymer filaments known as microtubules. The microtubules polymerise and de-polymerise at the tip, and are anchored to the cell membrane, in the inner surface of the cell wall.
 
-The interaction between microtubules is mechanical due to collision events. An outcome of a collision is that the tip of the <b>incoming</b>  tubule can be lost, which results in a rapid depolymerisation or <b>catastrophe</b> of the filament. Other possible scenario are that the incoming filament simply  <b>crosses</b>  over the target filament, or that the two filaments  <b>zip</b>  together forming a bundle.
+The interaction between microtubules is mechanical due to collision events. An outcome of a collision is that the tip of the <b>incoming</b>  tubule can be lost, which results in a rapid depolymerisation or <b>catastrophe</b> of the filament. Other possible scenarios are: the incoming filament simply  <b>crosses</b>  over the target filament, or the two filaments  <b>zip</b>  together forming a bundle.
  
-The frequency of such outcomes, as well as geometric contraints and some other chemical and  mechanical processes determine the organisation of the network. Which can be aligned arrays, like the ones in the movie,  or disordered arrays.
+The frequency of such outcomes, the geometric constraints and some other chemical and  mechanical processes determine the organisation of the network. Which can be aligned arrays, like the ones in the movie, or disordered arrays.
 
-For the sake of brevity, this very lousy introduction to the topic is all I am going to mention, but I really encourage you to consult a proper reference in the subject, such as [this](https://doi.org/10.1017/CBO9780511607318).
+This very lousy introduction to the topic is all I am going to mention, but I really encourage you to consult a proper reference in the subject, such as [this](https://doi.org/10.1017/CBO9780511607318).
 
 </div>
 
@@ -34,7 +34,7 @@ For the sake of brevity, this very lousy introduction to the topic is all I am g
 
 ## Extracting the length and amount of polymer using python.
 
-### Pre-requisites.
+### Pre-requisites and libraries.
 
 The main library used is [numpy](https://numpy.org/doc/stable/index.html)
 
@@ -42,15 +42,13 @@ The main library used is [numpy](https://numpy.org/doc/stable/index.html)
 
 [Scikit-image]("https://scikit-image.org/") - A very well developed and supported image processing library.
 
-I use [Pyvista]("https://docs.pyvista.org/") for the 3d renderings but as you will see, it is entirely optional.
-
-Matplotlib and pandas for plots and data processing are also used, but by no means essential.
+Matplotlib and pandas for plotting and data processing are also used.
 
 <div style =  "text-align: justify">
 
 ### Step 1 - Cell of interest segmentation.
 
-We will only use the cell at the center of the movie. So the first step is to segment the region of interest across all the frames. This can be easily done by selecting a small set of points outlining the shape of the cell. This can be done using a program such as [FIJI/ImageJ]("https://imagej.net/software/fiji/downloads") or the [point picker]("https://gitlab.com/calugo/tubule-tiff-picker) GUI wrote ages ago to annotate microtubule collisions.
+We will only be focusing on the cell at the center of the movie. So, the first step is to segment the region of interest across all the frames. This can be easily done by selecting a small set of points outlining the shape of the cell. This can be done using a program such as [FIJI/ImageJ]("https://imagej.net/software/fiji/downloads") or the [point picker]("https://gitlab.com/calugo/tubule-tiff-picker) GUI wrote ages ago to annotate microtubule collisions.
 
 To form a polygon, the first and last points need to be the same. Once you have the set outlining the cell shape, and stored in a file, we need to load these in any way you prefer. Next, we load the tiff file. For this purpose I use scikit-image.
 </div>
@@ -59,9 +57,7 @@ To form a polygon, the first and last points need to be the same. Once you have 
 import skimage.io as io
 import matplotlib.pyplot as plt
 import numpy as np
-import pyvista as pv
 import pandas as pd
-import glob as glob
 from shapely.geometry import Polygon, Point
 ```
 <div style="text-align: center"><b> <i>
@@ -70,7 +66,7 @@ All the modules required for this post to work.</i></b></div>
 
 <div style="text-align: justify">
 
-If the movie stack file is named `cortex.tiff` then to import it we invoke:
+Assuming that the image stack file is named `cortex.tiff`, then it can be loaded as follows:
 </div>
 
 ```
@@ -80,9 +76,9 @@ Z = io.imread(file);
 ```
 
 <div style="text-align: justify">
-And that's that! the stack is loaded into a numpy array. By using `Z.shape`, we can obtain information about the movie. In my case `print(Z.shape)` returns the tuple `(200, 512, 512)` which tells us that there are 200 frames, each frame containing a 512x512 array image.
+And that's that! The stack is loaded into a numpy array. By using `Z.shape`, we can obtain information about the movie. In my case `print(Z.shape)` returns the tuple `(200, 512, 512)` which tells us that there are 200 frames, each frame containing a 512x512 array image.
 
-Once the points and the stack are loaded we can mask each frame by setting everything outside the region of interest to zero and keep the inside pixels unaltered.
+To mask each frame, we need to set everything outside the region of interest to zero and keep the inside pixels unaltered.
 </div>
 
 
@@ -95,9 +91,7 @@ Step I. Region of interest segmentation. Straightforward, yet essential.</i></b>
 
 <div style="text-align: justify">
 
-The figure above shows a masked frame, this needs to be applied to every frame. This can be done as follows:
-
-First, generate a polygon object and store all the inner points in a list.
+The figure above shows a masked frame. We need to mask all the frames, to do so, first we generate a polygon object and store all the inner points in a list:
 
 ```    
 coords=[(i,j) for i,j in zip(list(X),list(Y))]
@@ -112,7 +106,7 @@ for pb in box_patch:
         pixels.append([int(pb[0]), int(pb[1])]) 
 ```
 
-The above snippet computes all the pixels inside the `shapely` polygon object. This is of course assuming
+The above snippet computes all the pixels inside the `shapely` polygon object `pl`. This is assuming that
 the polygon point coordinates are stored in the arrays `X` and `Y`. Then, to  get the masked array, we apply something like the snippet below to every frame:
 
 ```
@@ -127,7 +121,7 @@ for pix in pixels:
 
 By calling `pl.area`, we get the value of the area enclosed by the polygon, which we will use later to compute the desired length and amount polymer estimates. So far, we have been using pixel units. To translate any results to actual length units, we need the scale conversion factor from the file metadata, In the present example we have \\( \lambda = 512  px / 40.96 \mu m = 12.5 \mu m ^{-1} \\). The cell area \\( A = 93731 px^2 =  600 \mu m ^ {2}\\).
 
-An extra step that can be performed is to scale all the masked frames pixel values to take values between zero and one. I did this by applying the following function to the stack `Z`, using the list of pixels inside the polygon.
+An extra step that can be performed is to scale all the masked frames pixel values to values between zero and one. I did this by applying the following function to the stack `Z`, using the list of pixels inside the polygon.
 
 ```
 def scaleZ(Z,px):
@@ -154,22 +148,27 @@ def scaleZ(Z,px):
 <div style="text-align: justify">
 
 
-We have a stack of images showing the fluorescence signal \\( F \\) of tubulin. This means the more tubulin, the more intense the signal. If we assume that the variable of interest \\( L \\) is related to the flourescence by:  \\(\ L(r) = \alpha  F(r) + \beta \\) for every pixel \\(r\\) in the frame, we need to estimate the values of \\( \alpha \\) and \\( \beta \\). 
+We have a stack of images showing the fluorescence signal \\( F \\) of tubulin. This means the more tubulin, the more intense the signal. If we assume that the variable of interest \\( L \\) is linearly related to the flourescence, then:  \\(\ L(r) = \alpha  F(r) + \beta \\) for every pixel \\(r\\) in the frame. The task is then to estimate the values of \\( \alpha \\) and \\( \beta \\). 
 
 For the case of  \\( \beta \\), if we interpret the masked image as a surface \\( z = f(r)\\), then the level set  \\( z = c_b \\) with the largest number elements, is precisely the background. This can be found by computing the number of pixels on each level in the range of the signal as follows:
 
 ```
-DATY = []; DATX = []; AVDATX = []; AVDATY = []
+AVDATX = []; AVDATY = [];
 
 for q in range(Z.shape[0]):
   BA = Z[q,:,:]
   BB = BA[BA > 0]
   nx = np.unique(BB)
   ny = []
+
+  #Computes the level sets
   for nj in nx:
     dyj = BB[BB == nj];
     ny.append(len(dyj))
-    
+
+  # Computes a smoothed 
+  # curve from the data
+
   wnx = []
   wny = []
   dn = 250
@@ -182,6 +181,10 @@ for q in range(Z.shape[0]):
 
 THX=[]
     
+# Loops over the smooth versions 
+# and finds the pair (xmax,ymax) which 
+# maximises the curve
+
 for j in range(ZS.shape[0]):
   ymax = max(AVDATY[j])
   xj = AVDATY[j].index(ymax)
@@ -190,14 +193,14 @@ for j in range(ZS.shape[0]):
 
 ```
 
-The video below illustrates what I just described for a single frame.
+The video below illustrates the results of what I just described for a single frame.
 
 {{< youtubeLite id="xBFyQNE88gY" label="Blowfish-tools demo" params="controls=0" >}}
 <b><i>Pyvista rendering of a frame as surface. (Left) full frame, (Middle) the masked frame. (Right) The signal with the background substracted.</a>
 </i></b>
 
 
-Applying the snippet above to every masked frame and collecting every `nx` and `ny` values, and plotting the results, we get something that looks like:
+Applying the snippet above to every masked frame and collecting every `xmax` and `ymax` values, and plotting the results, we get something that looks like:
 
 {{<gallery>}}
   <img src="gallery/WEBBKGH5.png" class="grid-w100" />
@@ -207,7 +210,7 @@ Applying the snippet above to every masked frame and collecting every `nx` and `
 
 From the plots above it es easy to set the background value as the average of values in which the plots are maximised. In this case it give a signal value of around 0.26.
 
-We now need to calibrate the results by obtaining the value of \\( \alpha \\). 
+
 
 
 {{<gallery>}}
@@ -217,14 +220,19 @@ We now need to calibrate the results by obtaining the value of \\( \alpha \\).
 </i></b>
 
 
+We now need carry out the calibration step to obtain the value of \\( \alpha \\). 
+
 </div>
 
 ### Step 3 - Tubulin/Intensity ratio estimation.
 
 <div style="text-align: justify">
-This is the final step. It is a calibration step. In a nutshell, it consists of picking a segment of what appears to be a <b>single</b> microtubule segment, and measure the amount of signal per length. By doing so, we can then calculate the full amount of signal in every frame and thus make an estimation of how long does a filament need to be to accommodate that amount of signal.
 
-The first thing to do is to navigate through the movie and select a few segments which then will be used to calibrate. This step is again a step that can be carried out using an external application to save points.
+This is the final step. In a nutshell, it consists of picking a segment of what appears to be a <b>single</b> microtubule segment. If the segment has a length \\( l_o \\) and we measure the amount of signal \\( I_o \\) within a box of that length and height \\( h \\). Then we just find the value \\( \alpha \\) such as  \\( \ l_o = \alpha I_o \\). 
+
+In other words \\( \alpha = \frac{l_o}{I_o} \\). Therefore, if a given amount of signal \\( I \\) is measured, we can say that it can be accommodated in a length \\( L = \frac{I}{I_o} l_o\\). By doing so, we can then calculate the full amount of signal in every frame and thus make an estimation of how long does a filament need to be to accommodate that amount of signal.
+
+The first thing to do is to navigate through the movie and select a few segments which then will be used to make the calibration. This step is again a step that can be carried out using an external application to save points.
 
 
 {{<gallery>}}
@@ -264,7 +272,7 @@ def Box(Zm, X, Y, dn, bkg):
 <b><i>Function to compute  box  with the marked filament. The arguments are the frame `Zm`, the filament end points `X`,`Y`, the box height `dn` and the background value `bkg`. 
 </i></b>
 
-Now, that we have the box, we can systematically increase the width of the box from zero to values which contains all the signal inside. The criteria to used to select the width is the signal value in which the width starts to be almost constant. 
+Once we have the box determined, we can systematically vary the width of from zero to values which contains all the signal inside. Then, the criteria to used the amount of signal of a single filament is: the box with width for which the amount of signal start to be almost constant. 
 
 
 ```
@@ -283,16 +291,14 @@ for n in range(no-1):
 <b><i>Snippet to compute the signal within a box of height `2no`. The arguments are `no` and `Na` which is the length of the box, as well as the array `Q`.
 </i></b>
 
-To determine the amount of signal in the length provided we select the point in which the signal starts to decrease by decreasing the box height. This is shown in the plots below.  
 
 {{<gallery>}}
   <img src="gallery/cal1.png" class="grid-w100" />
 {{</gallery>}} 
-<b><i>Snippet to compute the signal within a box of height `2no`. The arguments are `no` and `Na` which is the length of the box, as well as the array `Q`.
+<b><i> Output from performing the calibration step over a segment. (Left) Measures of the amount of signal in the box. (Right) The filament enclosed in boxes of several heights.
 </i></b>
 
 By choosing several filaments across the movie, we can obtain several points and average to estimate the ratio signal/length. 
-
 
 
 {{<gallery>}}
@@ -342,17 +348,17 @@ SIkav = np.std(Ik)
 From the previous step we know that \\( L = l_o \left( \frac{I}{I_o} \right) \\). Whereas the amount of polymer is the sum of the intensity above or equal to the calibration amount \\( I_o. \\) 
 
 
-Executing the snippet and collecting the mean values we get an average linear polymer length of  \\( 2293 \pm 217 \mu m \\) and the average amount of polymer per cell area \\( P_n = 7 \pm 0.7 [\mu m ]^{-2}  \\) 
+Executing the snippet and collecting the mean values we get an average linear polymer length per area of  \\( 1.52 \pm 0.13 \mu m \\) and the average amount of polymer per cell area of \\( 1.73 \pm 0.15 [\mu m ]^{-2}  \\) 
 
 
 
 {{<gallery>}}
-  <img src="gallery/Results.png" class="grid-w100" />
+  <img src="gallery/H5_Results.png" class="grid-w100" />
 {{</gallery>}}
 
-And that's it! The full script can be found here!.
+I have prepared a jupyer notebook available here, to be used as you please.
 
-The full analyisis will probably find its way into an article, but if it is not the case, well here its to be read and maybe be used by someone interested!
+The full analysis will probably find its way into an article appendix with some luck. If it is not the case, well, at least for now, here it is. To be read and maybe be used by someone interested!
 
 </div>
 
