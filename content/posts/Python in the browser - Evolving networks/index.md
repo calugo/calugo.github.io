@@ -15,18 +15,20 @@ WebAssembly</a>
  and its associated ecosystem <a href="https://emscripten.org/index.html" target ="_blank">ecmscripten</a>
  ,  <a href="https://docs.pyscript.net/2025.3.1/" target="_blank">pyscript</a>  and  <a href="https://panel.holoviz.org/index.html" target="_blank">panel</a>, allow the development of web content in languages like C, Go, Julia or Python, which can be executed on almost any modern web-browser.  This provided me with an excellent justification to revise some interesting models and simulations close to my heart, and which can be used to produce demos I can put on spaces like this website.
 
-One example which is very much of interest today not only to me but to several people in the ecology and evolution communities is that of the formation, co-evolution and resilience of ecological networks. 
-
+An example, very much of interest today, not only to me but to several people in the ecology and evolution communities is the formation, co-evolution and resilience
+ of ecological networks. In this post I briefly present a very popular model of evolutionary dynamics, the <b>web world</b> model, and present a <b>python</b> implementation
+ of it, which I also embed on the page. 
+ 
 The advantage of being able to share codes in repositories for anybody to run their own simulations, is now 
 enhanced with the ability to literally execute the same code in the browser! This allows anybody to get a flavour of 
 the dynamics without having to install and download anything.
 </div>
 
-## Ecological Evolution as a complex system.
+## Foodwebs and ecological evolution.
 
 <div style = "text-align: justify">
-Here I briefly discuss the main features of the <b>Webworld model</b>.  This milestone model has been applied and studied in several contexts.
- {{< katex >}} Essentially, it provides a dynamical framework to understand how an ecosystem produces the hierarchical predator/prey structures called <b>foodwebs</b> from an evolutionary point of view, and to produce networks of <b>who eats who</b> with properties similar to those observed in nature.</div>
+Before discussing the main features of the <b>webworld model</b>. Let me introduce the concept of <b>foodweb</b>.  
+ {{< katex >}} In a nutshell, foodwebs are the network-like hierarchical structures which result of quentifying <b>which species eats which species</b> in a given ecosystem.</div>
 </br>
 </br>
 </br>
@@ -34,14 +36,23 @@ Here I briefly discuss the main features of the <b>Webworld model</b>.  This mil
 <iframe src="https://calugo.github.io/WebWorld/fweb"
  style="height:690px;width:800px;" title="Iframe Example"></iframe>
  <div style="text-align: justify"><b> <i>
-Typical foodweb evolution obtained with webworld. Each node represents a species, the node radius is equal to the logarithm of the population and the width of the links is equal to the strength of the interaction. We start with a single species, and continue to show the network as more species are introduced in the system. The arrows show the direction of the resources. At the very beginning of the evolution, the only species present feeds from the external resources.
+Typical foodweb evolution obtained with webworld. Each node represents a species, 
+the node radius is equal to the logarithm of the population and the width of the 
+links is equal to the strength of the interaction. We start with a single species, 
+and continue to show the network as the system evolves by adding more species. 
+The arrows point in the direction of the flow of resources. 
+At the very beginning of the evolution, the only species present feeds from the external resources.
 </i></b></div>
 
-## Foodwebs
-
+</br>
 
 <div style = "text-align: justify">
-A <b>foodweb</b> is constructed by considering all the species present in an ecosystem and quantifying all the predators and prey of each species. If a species does not posses any prey, but the external resources, then it belongs to the  <b>basal trophic level</b>. If on the contrary, a species does not have any predators, only prey, then it belongs to the <b>top trophic level</b>. A species which posseses both predator and prey species, is accommodated in a <b>trophic level</b> computed by the shortest path to the external resources. In general, foodwebs only have a few of trophic levels and the population sizes of basal species are often orders of magnitude larger that those is the intermediate and upper levels.
+A <b>foodweb</b> is constructed by considering all the species present in an ecosystem and quantifying all the predators and prey of 
+each species. If a species does not posses any prey, but the external resources, then it belongs to the  <b>basal trophic level</b>. 
+If on the contrary, a species does not have any predators, only prey, then it belongs to the <b>top trophic level</b>. 
+Species predator and prey species are accommodated in a <b>trophic level</b> computed by the shortest path to the external resources. 
+In general, foodwebs only have a few of trophic levels and the population sizes of basal species are often orders of magnitude larger
+ that those is the intermediate and upper levels.
 </div>
 
 
@@ -61,7 +72,10 @@ $$\dot{N_i}(t)=\lambda \sum_j g_{ij}(t)N_i(t) - \sum_j g_{ji}(t)N_j(t)-d_iN_i(t)
 
 The parameters \\( \lambda\\) and \\(d_i\\) correspond to the efficiency at which the resources transfer from a prey to its predator, and the natural death rates.
 
-The only remaining quantities required to complete this model are the specification of the predation rates \\(g_{kl}(t) \\) between species \\( k \\) and \\( l \\). However, the goal here is more ambitious, we want to know, how does and ecosystem is formed in the first place, and how does <b>natural selection</b> drives the system to a mature configuration, in which the system (1) operates. To do so, we might, first consider a starting ecosystem consisting of a single species and establish the criteria for species evolution, and how to determine if two species posses a predator/prey relationship.
+To complete such a model we need to specify the predation rates \\(g_{kl}(t) \\) between species \\( k \\) and \\( l \\).  However, the goal here is more ambitious, we want to know, how does 
+an ecosystem is formed in the first place! As well as how does <b>natural selection</b> drives the system to robust and stable configurations, in which the system \\( (1) \\) operates. 
+
+To do so, we might, first consider a starting ecosystem consisting of a single species and establish the criteria for species evolution, and how to determine if two species posses a predator/prey relationship.
 </div>
 
 ### Species features and mutations.
@@ -95,18 +109,22 @@ This choice \\( (4) \\) introduces the fractions of effort \\( f_{ij} \\) a spec
 
 $$ f_{ij} = \frac{g_{ij}}{\sum_j g_{ij}} \quad(5)$$
 
-Equations \\( (4) \\) and \\( (5) \\) are re-adjusted each time the populations change. These, determine the foraging strategy of the each predator. This choice of efforts is an evolutionary stable strategy (ESS), which means that any other strategy can not be successful against it, provided the ESS is already taken by the majority. The dynamics of the efforts takes place in the shorter time scale of the model, which is that of days. 
+Equations \\( (4) \\) and \\( (5) \\) are re-adjusted each time the populations change. These, determine the foraging strategy of the each predator. This choice of efforts is an evolutionary stable strategy (ESS), which means that any other strategy can not be successful against it, provided the ESS is already taken by the majority. The dynamics of the efforts takes place in the shorter time scale of the model, which is that of hours/days. 
 </div>
 
 {{<gallery>}}
   <img src="gallery/ESSX.gif" class="grid-w100" />
 {{</gallery>}}<div style="text-align: justify"><b> <i>
-Evolution of the system in between evolutionary steps, showing the population updates and the adjustment of the efforts (links thickness). We can see an extinction eeven, once a population reaches a value below 1.0
+Evolution of the system in between evolutionary steps, showing the population updates and the adjustment of the efforts (links thickness). 
+In this particular set, we can also observe an extinction event, which is determined once a population reaches a value below 1.
 </i></b>
 
 
 <div style= "text-align: justify">
-For a fixed set of species, the foraging and population dynamics will eventually lead to a stationary state, where nothing will change any further. Once the fixed point is achieved, a new species is added to the system. A new species is introduced, by choosing any of the surviving species and replacing one of the features for a new one.  The new species starts with a population on one individual and the short and intermediate time scale dynamics starts again.
+For a fixed set of species, the foraging and population dynamics will eventually lead to a stationary state, where nothing will 
+change any further. Once such a fixed point is reached, a new species is added to the system. New species are introduced, by choosing
+ any of the surviving species and replacing one of the features for a new one (evolutionary step). 
+ The new species starts with a population of one individual and the short and intermediate time scale dynamics starts again.
 </div>
 </br>
 <iframe src="https://calugo.github.io/WebWorld/joy"
