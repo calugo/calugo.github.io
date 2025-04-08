@@ -28,7 +28,7 @@ the dynamics without having to install and download anything.
 
 <div style = "text-align: justify">
 Before discussing the main features of the <b>webworld model</b>. Let me introduce the concept of <b>foodweb</b>.  
- {{< katex >}} In a nutshell, foodwebs are the network-like hierarchical structures which result of quentifying <b>which species eats which species</b> in a given ecosystem.</div>
+ {{< katex >}} In a nutshell, foodwebs are the network-like hierarchical structures which result of quantifying <b>which species eats which species</b> in a given ecosystem.</div>
 </br>
 </br>
 </br>
