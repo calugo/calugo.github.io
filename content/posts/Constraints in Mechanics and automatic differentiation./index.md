@@ -6,29 +6,34 @@ description: "A little example "
 tags: ["Autodiff", "Pyodide","Mechanics","WebGL","threejs"]
 ---
 
+<div style = "text-align: justify">
+Classical mechanics of particles is a subject which serves as gateway to many relevant concepts, tools and 
+techniques which are used in virtually every field which attempts to describe dynamical phenomena, as well as in contemporary data science and machine learning which heavily rely on finding solutions of optimization problems.
+
+An example of this is type of problems which require optimization is the motion of particles subjected to constraints due to a physical barrier, such as the one shown below, where a mass under the action of gravity moves on the surface of a paraboloid.
+</div>
+
 {{<gallery>}}
   <img src="gallery/Par2.gif" class="grid-w100" />
 {{</gallery>}}<div style="text-align: justify"><b> <i>
-Solution obtained with the implementation described in this post. The constraint surface is a paraboloid and the code to achieve this can be found <a href="https://github.com/calugo/Lagrange-Multipliers-with-autodiff" target="_blank">here</a>. 
+Solution obtained with the implementation described in this post. In this example, a particle with an initial potentual energy a moves over the surface of a paraboloid. The code to solve this type of problems this can be found <a href="https://github.com/calugo/Lagrange-Multipliers-with-autodiff" target="_blank">here</a>. 
 </i></b>
 
 
 
 <div style = "text-align: justify">
-Classical mechanics of particles is a subject which serves as gateway to many relevant concepts, tools and 
-techniques which are used in virtually every field which attempts to describe dynamical phenomena, as well as in contemporary data science and machine learning which heavily rely on finding solutions of optimization problems.
+In this post I discuss how to solve the type of problem mentioned above, namely the motion of particle in a gravitational field moving along a surface using the Lagrange multipliers method. 
 
-In this post I cover a very nice example of optimization with constraints, namely the motion of particle in a gravitational field moving along a surface. This problem can be treated using the Lagrange multipliers method. Below, I briefly present the method, and then I describe how to use automatic differentiation to numerically solve the equations using the fourth order Runge-Kutta method. A python implementation of the method is shared at the end of the post, alongside with an interactive demo built using <a href="https://threejs.org/">threejs</a> and <a href="https://pyodide.org/en/stable/#">pyodide</a>.
+I briefly present the method, and then I describe how to use automatic differentiation to numerically solve the equations using the fourth order Runge-Kutta method. As with every post, I share an interactive numerical implementation of the method. On this ocassion, the demo is built using <a href="https://threejs.org/">threejs</a> and <a href="https://pyodide.org/en/stable/#">pyodide</a>.
+
 </div>
 
-
+### Interactive Demo:
 
 <div style = "text-align": center>
  <iframe src="https://calugo.github.io/Lagrange-Multipliers-with-autodiff/"
  style="border: 3px dotted black; width: 100%; height: 500px;"> </iframe>
-<b><i>Online implementation using Pyodide and Threejs. Of course, it works better on a <a href="https://calugo.github.io/Lagrange-Multipliers-with-autodiff/"  target="_blank">tab of its own!</a> Below I describe some details on how to make your own. For best result, make sure to check the <a href="https://pyodide.org/en/stable/#">Pyodide</a> documentation.
-
-Usage: Once you have set the initial position, the surface and parameters, click on the <b>Run</b> button and wait until the <b>Plot</b> is enabled to plot the trajectory!. 
+<b><i>Online implementation using Pyodide and Threejs. Of course, it works better on a <a href="https://calugo.github.io/Lagrange-Multipliers-with-autodiff/"  target="_blank">tab of its own!</a> Below I describe some details on how to make your own. For best result, make sure to check the <a href="https://pyodide.org/en/stable/#">Pyodide</a> documentation.   In this demo, once you have set the initial position xo and yo and the surface with parameters A,B. click on the <b>Run</b> button and wait until the <b>Plot</b> is enabled to plot the trajectory!. You can move the scene around and zoom, with the mouse or touch gestures.
 </i></b>
 </div>
 
@@ -99,7 +104,7 @@ The numerical solution of optimization problems is required everywhere, as its i
 
 ## Enter Autograd.
 
-Let us consider a set of functions which depend of \\( {(x,y)} \\) and a couple of parameters \\( {(A,B)} \\). For example:
+Let us consider a set of functions which depend of \\( {(x,y)} \\) and a couple of parameters \\( {(A,B).} \ \ \\)  For example:
 
 ```python
 def plane(a,b,x,y):
@@ -113,7 +118,7 @@ def wave(a,b,x,y):
 
 ```
 
-Then it is easy to write down the function \\( \bf{F} \\) in \\( (17) \\). As:
+Then it is easy to write down the function \\( \bf{F} \\) in \\( (17) \\) as:
 
 ```python
 def kn(r,pars,case):
@@ -156,7 +161,9 @@ def kn(r,pars,case):
 ```
 
 <div style = "text-align: justify">
-The function objects depend on four variables, the two parameters \\(a,b \\) and the coordinates \\( x,y \\). To obtain the partial derivatives we want, we derive with respect to the index of the variable defined in the function arguments. In the cases above \\( x \\) and \\( y \\) correspond to the second and third indices.  Then, the required derivatives are simply computed as:
+
+The function objects depend of four variables, the two parameters \\(a,b \\) and the coordinates \\( x,y \\). To obtain the partial derivatives with respect to the variables we want, `grad` takes the index of the variable defined in the function. In the cases above \\( x \\) and \\( y \\) correspond to the second and third indices.  Then, the required derivatives are simply computed as:
+
 </div>
 
 ```
@@ -197,7 +204,7 @@ def RK(tf,ro,case,h,a,b):
 ### Webassembly Implementation.
 
 <div style = "text-align: justify">
-This project was made with the excuse of developing the numerical work and the visualisation independently. As I have several little projects which can make use of this. So, essentially for a set of functions in a given file, we can expose the methods to run in the browser as follows:
+This project was made with the excuse of developing the numerical work and the visualisation independently, and being able to share it on the blog, taking advantage of the lovely threejs library. To achieve this, the set of functions in a given file, can be accessed by the javascript scope as follows:
 </div>
 
 1. Import the Pyodide javascript module in the head of your document:
@@ -206,7 +213,7 @@ This project was made with the excuse of developing the numerical work and the v
 <script src="https://cdn.jsdelivr.net/pyodide/v0.27.5/full/pyodide.js"></script>
 ```
 
-2. If the numerical methods are located all in a file named, lets say "integrals.py", its methods need to be made accesible to the javascript methods and scope. For this project specifically, this is done in javascript as:
+2. If the numerical methods are located all in a file named, lets say, "integrals.py". Then, the methods are made accessible to javascript in the initialisation part with something like this:
 
 ```javascript
 //Load Pyodide and install the autograd package.
@@ -228,9 +235,7 @@ let RK = pyodideRuntime.globals.get('RK');
 ```
 
 <div style = "text-align": center>
-The repository with the code is available <a href="https://github.com/calugo/Lagrange-Multipliers-with-autodiff/tree/main" target="_blank">here</a>. 
+That is all for now! The repository with the code is available <a href="https://github.com/calugo/Lagrange-Multipliers-with-autodiff/tree/main" target="_blank">here</a>.  The live demo can be found <a href="https://github.com/calugo/Lagrange-Multipliers-with-autodiff">here</a>.
 
-The live demo can be found <a href="https://github.com/calugo/Lagrange-Multipliers-with-autodiff">here</a>.
-
-That's it!
+Until next time!
 </div>
