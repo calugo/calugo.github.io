@@ -7,7 +7,7 @@ tags: ["Autodiff", "Pyodide","Mechanics","WebGL","threejs"]
 ---
 
 {{<gallery>}}
-  <img src="gallery/Par2x.gif" class="grid-w100" />
+  <img src="gallery/Par2.gif" class="grid-w100" />
 {{</gallery>}}<div style="text-align: justify"><b> <i>
 Solution obtained with the implementation described in this post. The constraint surface is a paraboloid and the code to achieve this can be found <a href="https://github.com/calugo/Lagrange-Multipliers-with-autodiff" target="_blank">here</a>. 
 </i></b>
