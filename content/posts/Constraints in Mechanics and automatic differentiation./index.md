@@ -1,5 +1,5 @@
 ---
-title: "Lagrange multipliers, Mechanics and Automatic Differentiation."
+title: "Lagrange Multipliers, Mechanics and Automatic Differentiation."
 date: 2025-04-24
 draft: false
 description: "A little example "
@@ -7,24 +7,27 @@ tags: ["Autodiff", "Pyodide","Mechanics","WebGL","threejs"]
 ---
 
 <div style = "text-align: justify">
-Classical mechanics of particles is a subject which serves as gateway to many relevant concepts, tools and 
-techniques which are used in virtually every field which attempts to describe dynamical phenomena, as well as in contemporary data science and machine learning which heavily rely on finding solutions of optimization problems.
+Classical mechanics of particles is a subject which serves as gateway to concepts, tools and 
+techniques which are common currency in every field which aims to describe dynamical phenomena, as well as in contemporary data science and machine learning
+ which rely on finding solutions of optimization problems.
 
-An example of this is type of problems which require optimization is the motion of particles subjected to constraints due to a physical barrier, such as the one shown below, where a mass under the action of gravity moves on the surface of a paraboloid.
+A prototypical optimization is that of the motion of a particle subjected to constraints due to a physical barrier (see the movie below), where a mass under the action of gravity moves over a surface.
 </div>
 
 {{<gallery>}}
   <img src="gallery/Par2.gif" class="grid-w100" />
 {{</gallery>}}<div style="text-align: justify"><b> <i>
-Solution obtained with the implementation described in this post. In this example, a particle with an initial potentual energy a moves over the surface of a paraboloid. The code to solve this type of problems this can be found <a href="https://github.com/calugo/Lagrange-Multipliers-with-autodiff" target="_blank">here</a>. 
+Solution obtained with the implementation described in this post. In this example, a particle with an initial potential energy moves over the surface of a paraboloid. The code to solve this type of problems can be found <a href="https://github.com/calugo/Lagrange-Multipliers-with-autodiff" target="_blank">here</a>. 
 </i></b>
 
 
 
 <div style = "text-align: justify">
-In this post I discuss how to solve the type of problem mentioned above, namely the motion of particle in a gravitational field moving along a surface using the Lagrange multipliers method. 
+In this post I discuss how to solve the type of problem mentioned above using the Lagrange multipliers method. First, I briefly present the maths and then I describe how to use automatic differentiation to numerically solve the equations using the Runge-Kutta method.
+</div>
+<div style = "text-align: justify">
 
-I briefly present the method, and then I describe how to use automatic differentiation to numerically solve the equations using the fourth order Runge-Kutta method. As with every post, I share an interactive numerical implementation of the method. On this ocassion, the demo is built using <a href="https://threejs.org/">threejs</a> and <a href="https://pyodide.org/en/stable/#">pyodide</a>.
+ As with almost every post, I also share an interactive implementation of the method. On this occasion, It is built using <a href="https://threejs.org/">threejs</a> and <a href="https://pyodide.org/en/stable/#">pyodide</a>.
 
 </div>
 
@@ -54,7 +57,8 @@ $$m\ddot{x} = -\lambda f_x\quad(3)$$
 $$m\ddot{y} = -\lambda f_y \quad(4)$$
 $$m\ddot{z} = -mg + \lambda\quad(5)$$
 
-Where the indices in \\( f\\) stand for the partial derivative with respect to that variable. The system \\( (3)-(5)\\) needs to be complemented with the constraint equation:
+Where the indices in \\( f\\) stand for the partial derivative with respect to that variable. The system \\( (3)-(5)\\) needs to be complemented with the constraint equation
+ obtained differentiating \\( z \\) respect to time twice:
 
 $$\ddot{z} =(\dot{x}^2 f_{xx} + \dot{y}^2f_{yy})+\dot{x}\dot{y}(f_{xy}+f_{yx})+(\ddot{x}f_x+\\dot{y}f_y)\quad(6)$$
 
@@ -235,7 +239,7 @@ let RK = pyodideRuntime.globals.get('RK');
 ```
 
 <div style = "text-align": center>
-That is all for now! The repository with the code is available <a href="https://github.com/calugo/Lagrange-Multipliers-with-autodiff/tree/main" target="_blank">here</a>.  The live demo can be found <a href="https://github.com/calugo/Lagrange-Multipliers-with-autodiff">here</a>.
+That is all for now! The repository with the code to integrate, as well at the code to pu the simulation on line is available <a href="https://github.com/calugo/Lagrange-Multipliers-with-autodiff/tree/main" target="_blank">here</a>.  The live demo can be found <a href="https://github.com/calugo/Lagrange-Multipliers-with-autodiff">here</a>.
 
 Until next time!
 </div>
