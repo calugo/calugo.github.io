@@ -11,7 +11,7 @@ Classical mechanics of particles is a subject which serves as gateway to concept
 techniques which are common currency in every field which aims to describe dynamical phenomena, as well as in contemporary data science and machine learning
  which rely on finding solutions of optimization problems.
 
-A prototypical optimization is that of the motion of a particle subjected to constraints due to a physical barrier (see the movie below), where a mass under the action of gravity moves over a surface.
+An example of a classical optimization problem is that of the motion of a particle subjected to constraints due to a physical barrier (see the movie below), where a mass under the action of gravity moves over a surface.
 </div>
 
 {{<gallery>}}
