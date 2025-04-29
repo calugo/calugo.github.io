@@ -193,11 +193,14 @@ for j in range(ZS.shape[0]):
 
 ```
 
-The video below illustrates the results of what I just described for a single frame.
+The interactive panel below illustrates the results of what I just described for a single frame.
 
-{{< youtubeLite id="xBFyQNE88gY" label="Blowfish-tools demo" params="controls=0" >}}
-<b><i>Pyvista rendering of a frame as surface. (Left) full frame, (Middle) the masked frame. (Right) The signal with the background substracted.</a>
-</i></b>
+<div style = "text-align": center>
+ <iframe src="https://calugo.github.io/TubulinCounts/bg.html"
+ style="border: 3px dotted black; width: 100%; height: 240px;"> </iframe>
+<b><i>Interactive Pyvista rendering of a frame as surface. (Left) full frame, (Middle) the masked frame. (Right) The signal with the background substracted. Play around with touch gestures or the mouse to zoom, translate and rotate.</i></b>
+</div>
+
 
 
 Applying the snippet above to every masked frame and collecting every `xmax` and `ymax` values, and plotting the results, we get something that looks like:
