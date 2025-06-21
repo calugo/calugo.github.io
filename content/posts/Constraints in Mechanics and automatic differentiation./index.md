@@ -239,7 +239,7 @@ let RK = pyodideRuntime.globals.get('RK');
 ```
 
 <div style = "text-align": center>
-That is all for now! The repository with the code to integrate, as well at the code to pu the simulation on line is available <a href="https://github.com/calugo/Lagrange-Multipliers-with-autodiff/tree/main" target="_blank">here</a>.  The live demo can be found <a href="https://github.com/calugo/Lagrange-Multipliers-with-autodiff">here</a>.
+That is all for now! The repository with the code to integrate, as well at the code used to put the simulation on line is available <a href="https://github.com/calugo/Lagrange-Multipliers-with-autodiff/tree/main" target="_blank">here</a>.  The live demo can be found <a href="https://github.com/calugo/Lagrange-Multipliers-with-autodiff">here</a>.
 
 Until next time!
 </div>
