@@ -156,6 +156,23 @@ This is it! Run the model right here, right now!. Press the run button and you w
  <a href="https://huggingface.co/spaces/kupkasmale/WebWorld"> hugginface </a> repository to run this on a full screen!
 </i></b></div>
 
+<div style = "text-align: justify">
+
+Below I show a couple of plots which illustrate some of the trends produced by the model. First the number of species in  the system for 50 realisations as a functionalof 
+time, measured in speciation events (evolutionary time-scale) and the average value (yellow line) with the standard deviation (red lines). This figure shows simulations for
+\\( 5\times10^4 \\) time steps and parameter values \\( R=1\times10^4 \\) and \\( c=0.25 \\).
+
+{{<gallery>}}
+  <img src="gallery/RN.png" class="grid-w100" />
+{{</gallery>}}
+
+Next, I show the mean number of species at \\(t= 5 \times10^4\\) for different values of \\(R \\) and \\( c \\). We can see that low resources and high competition limit the system size.
+
+{{<gallery>}}
+  <img src="gallery/RCPLOT.png" class="grid-w100" />
+{{</gallery>}}
+
+</div>
 
 ## Suggested readings for in-depth details and discussion of the model and results.
 
