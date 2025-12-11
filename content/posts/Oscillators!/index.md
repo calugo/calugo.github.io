@@ -207,7 +207,7 @@ basically consist of release mechanisms which loss water, faster or slower depen
 {{< gallery >}}
 <img src="gallery/Fb.jpg" class="grid-w25" />I
 <img src="gallery/Fa.jpg" class="grid-w25" />
-<img src="gallery/FCa.jpg" class="grid-w25" />
+<img src="gallery/FCA.jpg" class="grid-w25" />
 <img src="gallery/Fc.jpg" class="grid-w25" />
 {{< /gallery >}}
 <p  align = "center">
