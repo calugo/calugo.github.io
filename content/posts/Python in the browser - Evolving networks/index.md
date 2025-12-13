@@ -33,10 +33,11 @@ Before discussing the main features of the <b>webworld model</b>. Let me introdu
 </br>
 </br>
 
-<iframe src="https://calugo.github.io/WebWorld/fweb"
- style="height:690px;width:800px;" title="Iframe Example"></iframe>
- <div style="text-align: justify"><b> <i>
-Typical foodweb evolution obtained with webworld. Each node represents a species, 
+
+<iframe align="middle" src="https://calugo.github.io/WebWorld/fwebx" width="100%" height="550" title="WebWorld">
+</iframe>
+<div style="text-align: justify">
+<i><b>Typical foodweb evolution obtained with webworld. Each node represents a species, 
 the node radius is equal to the logarithm of the population and the width of the 
 links is equal to the strength of the interaction. We start with a single species, 
 and continue to show the network as the system evolves by adding more species. 
@@ -127,8 +128,8 @@ change any further. Once such a fixed point is reached, a new species is added t
  The new species starts with a population of one individual and the short and intermediate time scale dynamics starts again.
 </div>
 </br>
-<iframe src="https://calugo.github.io/WebWorld/joy"
- style= "width: 100%; height:470px;  title="Iframe Example"></iframe>
+<iframe class="grid-w100" src="https://calugo.github.io/WebWorld/joy"
+ height="500" title="Iframe Example"></iframe>
 <div style="text-align: justify"><b> <i>
 Evolution of the number of species (right panel) and the efforts matrix (left panel) corresponding to the foodwebs shown earlier. Notice that the system starts with one species and then it fluctuates by the action of extinction events and evolutionary events. 
 </i></b></div>
@@ -148,7 +149,7 @@ For the live version of the code, the hugginface model space lives <a href="http
  <iframe
 	src="https://kupkasmale-webworld.hf.space"
 	frameborder="0"
-	style = "width: 100%; height: 450px"
+	style = "width: 100%; height: 900px"
 ></iframe>
 <div style="text-align: justify"><b> <i>
 This is it! Run the model right here, right now!. Press the run button and you will see the number of species updating every few hundred evolutionary events (species introduction). This will run until the system performs 5000 evolutionary time-steps or it reaches 59 species. Once the simulation is completed you can see a diagram of the foodweb in the tab labeled <b>PlotFW</b>. The diagram in the live version is drawn with <b>networkx</b> instead of matplotlib, such as the ones provided in the 
