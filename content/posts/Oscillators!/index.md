@@ -18,19 +18,19 @@ Again, for this project all the simulations I show here, had all the numerical c
 
 ## Excitable Systems - Shishi-odoshi.
 
-<div style = "text-align": center>
+<div style = "text-align: justify">
 
-I would like to put under consideration the oscillator illustrated below:
+I would like to put under consideration the oscillating system below:
 
 </div>
 
 <p align = "center">
 
-<iframe src="gallery/graynice.gif" style="border: 3px dotted black;width: 43%; height: 300px;"> </iframe>
+<iframe src="gallery/graynice.gif" style="border: 0px dotted black;width: 100%; height: 300px;"> </iframe>
 
 </p>
 
-<div style = "text-align": center>
+<div style = "text-align: justify">
 
 Prettier versions of this device can be found in some Japanese gardens and are called "deer-frigthening" or "boar-frigthening" and according to <a href="https://en.wikipedia.org/wiki/Shishi-odoshi" target="_blank">Wikipedia</a>  that has been the traditional use of these. Beyond beauty and elegance, these devices are interesting because these show a set of features which are shared by some very important biological oscillators: 
 
@@ -45,9 +45,9 @@ Prettier versions of this device can be found in some Japanese gardens and are c
 
 
 <div style = "text-align: justify">
-Known biological clocks which exhibit "similar" behaviour are cardiac cells, neurons, on a full organism scale flytraps. On each case the stimuli is electrical for the fomer two, and mechanical for the latter.
+Known biological clocks which exhibit "similar" behaviour are cardiac cells, neurons, and on a full organism scale venus flytraps. The stimulus can be electrical like in cells, mechanical as in the case of the flytrap, amongst others such as light for the case of circadian clocks or even chemical as in the case of oscillating reactions.
 
-The little movie shown below (which I borrowed from  <a href="https://physics.gatech.edu/user/flavio-fenton" target="_blank">Flavio Fenton's </a> old website) shows a myocyte being stimulated at a single location.  The stimulus location releases calcium which then diffuses through the cell, activating more release locations sites and forming a wave. The stimulus is continuous, yet the behaviour of the myocyte is that of a beating cell. 
+The little movie below (borrowed from  <a href="https://physics.gatech.edu/user/flavio-fenton" target="_blank">Flavio Fenton's </a> old website) shows a myocyte being stimulated at a single location.  The stimulus location releases calcium which then diffuses through the cell, activating more release locations sites and forming a wave. The stimulus is continuous, yet the behaviour of the myocyte is that of a beating cell. 
 </div>
 
 </br>
@@ -58,20 +58,21 @@ The little movie shown below (which I borrowed from  <a href="https://physics.ga
 
 ## Models and Arrhythmias.
 <div style = "text-align: justify">
-Calcium cycling in cells a very active field of research, and very <a href="https://doi.org/10.1152/ajpheart.00515.2013">detailed models</a> have been developed, incorporating experimental data and taking into account several ion currents, buffers and sequestration dynamics. These models consider cells as compartments where ion currents occur as the consequence of ions flowing from the inside of the cell to the exterior, in the case of atrial cells a common model schematic is illustrated below.
+Calcium cycling in cardiac cells is a very active field of research. Very <a href="https://doi.org/10.1152/ajpheart.00515.2013">detailed models</a> have been developed, incorporating experimental data and taking into account several ion currents, buffers and sequestration dynamics. These models consider cells as compartments where ion currents occur as the consequence of ions flowing from the one compartment to another. In the case of atrial cells a common model schematic is illustrated below.
 </div>
 
 </br>
 
 <p align = "center">
-    <img src="gallery/BCNX.png" class="grid-w80" />
-    <b><i>(A): Human atrial cell compartment model schematics  (B): The RyRs states Markov model with the four configurations O: open, C: closed, and Inactive states I<sub>1</sub> and I<sub>2</sub>.</b></i>
+    <img src="gallery/BCN.png" class="grid-w80" />
+    <b><i>A detailed model of atrial cell electrophysiology. (Left): Human atrial cell compartment model schematics,  (Right): The RyR2s states Markov model with the four configurations O: open, C: closed, and Inactive states I<sub>1</sub> and I<sub>2</sub>.</b></i>
 </p>
 
 <div style = "text-align: justify">
 
-The diagram above shows: (A) the way all cell compartments are represented and connected through pumps and gates, connecting several inner and outer domains of the cell. (B) The complex responsible for the calcium cycling in these type of cells are the Ryanodine receptors (RyR2)  which in this model can be found in four configurations or states {{< katex >}}  \\( (I_1, I_2, O,C) \\). The reciprocal of the transition rate  \\( \tau_r = \frac{1}{k_B} \\) corresponds to the recovery from inactivation time. 
+The diagram above shows several cell compartments connected through pumps and gates, as well as the connections of several inner and outer domains of the cell (Left panel). And  the dynamics responsible for the calcium cycling, where the Ryanodine receptors (RyR2) states can be found in four configurations or states {{< katex >}}  \\( (I_1, I_2, O,C) \\). The reciprocal of the activation rate \\( \tau_r = \frac{1}{k_B} \\) corresponds to the recovery from inactivation time. 
 
+The translation of the sketched currents in the diagrams into mathematical models can be as complex and detailed as we require (see [1]). In this post however I would like to use the model presented in [2], which is a simplified and elegant version that serves very well to illustrate what we want in this post. The diagram of the currents consideres is shown below:
 
 <p align = "center">
     <img src="gallery/Simple.png" class="grid-w80" />
@@ -79,21 +80,21 @@ The diagram above shows: (A) the way all cell compartments are represented and c
 </p>
 
 
-The translation of the dynamics sketched in the diagrams into mathematical models can be as complex and detailed as we require (see [1]). In this post however I would like to use the model presented in [2], which serves very well to illustrate what we want in this post.
+The equations used in [2] read as follows:
 
 $$\dot{c}\_{j} = I_{s}(t)+g_{rel}c_{rel}\frac{k_ac_j^2}{k_{om}+k_ac_j^2}(c_{SR}-c_j) - (c_j-c_o)/\tau_{diff}\quad(1)$$
 
 $$\dot{c}\_{rel} = k_{im}(1-c_{rel}) - k_ic_jc_{rel}\quad(2)$$
 
 
-(1) and (2) constitute a minimal model for calcium release incorporating the release dynamics. Notice that the first term in (1)'s rhs is the external stimulus \\(I_{CaL}(t)=I_{s}(t)\\), Which is provided by the pacemaker cells in the heart or externally in experiments. These cells provide a periodic stimulus \\(T_s\\). This is where things get interesting. 
+(1) and (2) constitute a minimal model for calcium release incorporating the release dynamics. Notice that the first term in the rhs of (1) is the external stimulus \\(I_{CaL}(t)=I_{s}(t)\\), Which is provided by the pacemaker cells in the heart or externally in experiments. 
 
-A healthy cell will normally release Calcium periodically, driven by the stimulus if the recovery time of the ion release channels is slower compared to the stimulus. An example is illustrated below.  Where \\(T_s=400\ ms\\) and \\(T_r = 200\ ms \\) 
+A healthy cell will normally release Calcium periodically, driven by the periodic stimulus. If the recovery time of the ion release channels is fast compared to the stimulus period. An example is illustrated below.  Where \\(T_s=400\ ms\\) and \\(T_r = 200\ ms \\) 
 </div>
 
 
 <p align = "center">
-<iframe  src="https://calugo.github.io/UPC_Minimal_Calcium_Model/NALTT400.html" style="border: 0px dotted black; width: 60%; height: 850px;"> </iframe>
+<iframe  src="https://calugo.github.io/UPC_Minimal_Calcium_Model/NALTT500.html" style="border: 0px dotted black; width: 100%; height: 690px;"> </iframe>
 <b><i>
 </i></b>
 </p>
@@ -103,13 +104,13 @@ A healthy cell will normally release Calcium periodically, driven by the stimulu
 
 <div style = "text-align: justify">
 
-If on the other hand the release is slower due to a malfunction of the calcium release units, which might lead to a slow recovery, the periodic response alternates between a high/low beat to beat calcium release regime. These  <b><i>calcium alternans</b></i> are a known mechanism for inducing cardiac arrhythmias such as atrial fibrillation.  Below I show results for the case of 
+If on the other hand, the release is slow due to a malfunction of the calcium release units, the periodic response alternates between a high/low beat to beat calcium release. These  <b><i>calcium alternans</b></i> are a known mechanism for inducing cardiac arrhythmias such as atrial fibrillation.  Below I show results for the case of 
 {{< katex >}} \\( T_s=400\ ms \\) and \\(T_r = 320\ ms \\) .
 
 </div>
 
 <p align = "center">
-<iframe  src="https://calugo.github.io/UPC_Minimal_Calcium_Model/ALTT400.html" style="border: 0px dotted black; width: 60%; height: 850px;"> </iframe>
+<iframe  src="https://calugo.github.io/UPC_Minimal_Calcium_Model/ALTT500.html" style="border: 0px dotted black; width: 100%; height: 690px;"> </iframe>
 <b><i>
 </i></b>
 </p>
@@ -118,11 +119,11 @@ If on the other hand the release is slower due to a malfunction of the calcium r
 ## Stimulus-Recovery relationship and Interactive Solver.
 
 <div style = "text-align: justify">
-By collecting the maxima of the solutions, and sweeping the recovery times, keeping the stimulus period fixed, we can generate a bifurcation diagram containing the recovery time values for which the system exhibit regular oscillation as well as the values for which the alternating regime occurs.</div>
+By solving the model, sweeping the recovery times and keeping the stimulus period fixed, we can generate a diagram showing the recovery time values for which the system exhibit regular oscillation as well as the values for which the alternating regime occurs. This is shown below for \(T_s = 400 \quad ms \).</div>
 
 <p align = "center">
-    <img src="gallery/500.png" class="grid-w50" />
-    <b><i>Bifurcation plot: Maximum amplitudes of C<sub>j</sub>  vs &tau;<sub>rec</sub>  It can be seen which intervals present regular oscillations, 2:1 alternans as well as 3:1 alternans.</b></i>
+    <img src="gallery/500.png" class="grid-w95" />
+    <b><i>Bifurcation plot: Maximum amplitudes of C<sub>j</sub>  as  &tau;<sub>rec</sub>  varies. From here we can find the intervals which present regular oscillations, 2:1 alternans as well as 3:1 alternans.</b></i>
 </p>
 
 
@@ -135,10 +136,9 @@ If you want to play around this model, next I present an interactive solver-plot
  <iframe src="https://calugo.github.io/UPC_Minimal_Calcium_Model/"
  style="border: 3px dotted black; width: 100%; height: 300px;"> </iframe>
 <b><i>Interactive Numerical integrator of Eqns. (1) - (2). It works better on a <a href="https://calugo.github.io/UPC_Minimal_Calcium_Model/"  target="_blank">tab of its own!</a>. 
-C, Python and Julia versions, instructions and documentation to make your own can be found <a href="https://github.com/calugo/UPC_Minimal_Calcium_Model">in this repository</a>. The solution scene can be panned around and zoomed in/out using the mouse's right and middle buttons (or the touch gestures, equivalents).
+C, Python and Julia versions, instructions and documentation to make your own can be found <a href="https://github.com/calugo/UPC_Minimal_Calcium_Model">in this repository</a>. The solution scene can be panned around and zoomed in/out using the mouse's right and middle buttons (or the touch gestures equivalents).
 </i></b>
 </div>
-</br>
 
 ## Back to the seesaw
 
@@ -146,15 +146,13 @@ C, Python and Julia versions, instructions and documentation to make your own ca
 
 The complex alternating behaviour of the cardiac cells occurs if the cell possess dysfunctional calcium release units due to a damaged cell, or an underlying genetic condition. Mathematically this is encoded in the value of \\( k_{im} \\). 
 
-To investigate the origin of these dynamics, it is easy to build a japanese seesaw with bits and bobs of Lego and K'Nex sets (The best ever construction set available? Certainly the most versatile!). And make the following observations about the system 
-parameters.
-
+To investigate the origin of these dynamics, it is easy to build a japanese seesaw with bits and bobs of Lego and K'Nex toys. It is important to take into consideration  the system important parameters.
 </div>
 
 
 <div align = "center">
 
-<img src="gallery/schematics.png" class="grid-w45" />
+<img src="gallery/schematics.png" class="grid-w80" />
 
 </div>
 </br>
@@ -176,19 +174,17 @@ $$\ddot{\Phi}=-\frac{g}{l}\frac{m_1-m_2}{m_b+3(m_1-m_2)}\sin\Phi\quad(3)$$
 
 
 <div style = "text-align: justify">
-Before invetigating Eq. (3) numerically further approximations and boundary conditions should be provided. In this case, the conditions to constrain the angle between \(\Phi_1 = 2\pi-\arcsin(2h_1/l) \) and \(\Phi_2=\arcsin(2h_2/l) \).
+Before solving Eq. (3) numerically further approximations and boundary conditions should be provided. For instance, the angle needs to be constrained between \(\Phi_1 = 2\pi-\arcsin(2h_1/l) \) and \(\Phi_2=\arcsin(2h_2/l) \), if the angle reaches those values, the angular velocity should be set to zero.
 
-Alongside these condition we need to incorporate the stimulus, in this case by adding mass to the mass attached in the right end of the rod. A very easy way to do this is to use the conditions:
+To incorporate the stimulus, we need to add mass to the initial mass attached to  the right end of the rod. A way to do this is to use the function:
 
 $$m_2=m_{2o} + \alpha t$$
 
-If the angle \\(\Phi \geq \Phi^{\dagger} \\). Where \\(\Phi^{{\dagger}}\\) is a parameter stating the range of action if the stimulus. And the condition \\( m_2(t\') = \gamma m_2(t) \\) if \\( \Phi = \Phi_2\\). Where 
-\\(\gamma \in [0,1] \\) is a parameter stating the fraction of water released if we reached the boundary condition at \\( \Phi_2 \\). This parameter is the analogous to the parameter \\( k_{im}\\), As it regulates the recovery time.
+If the angle \\(\Phi \geq \Phi^{\dagger} \\). Where \\(\Phi^{{\dagger}}\\) is a parameter specifying the range of action if the stimulus. 
 
-We can see that there are a few parameters which are important, for instance the threshold mass \\(m_1 \\) which needs to be surpassed by \\(m_2\\) to move the centre of mass from the quadrant satisfying the constraint 
-\\(\Phi_1\\) into motion. Another two important parameters are the current \\(\alpha\\) as well as the fraction of water released mentioned above. We will return to this at the end of the post. For now, let us see the system 
-in action!
+The release condition  \\( m_2(t\') = \gamma m_2(t) \\) if \\( \Phi = \Phi_2\\), where  \\(\gamma \in [0,1] \\) is a parameter stating the fraction of water  remaining in the system after the boundary condition at \\( \Phi_2 \\) is reached.  This parameter is the analogous to the parameter \\( k_{im}\\). It regulates the recovery time. 
 
+Other important parameters are: the threshold mass \\(m_1 \\) which needs to be surpassed by \\(m_2\\) to kickstart the motion and the current strength \\(\alpha\\) specified above.
 </div>
 
 </br>
@@ -197,10 +193,10 @@ in action!
 
 
 <div style = "text-align: justify">
-I built a small portable seesaw. The images below show the device. I used the building toy Knex and Lego pieces, and some makerbeam frame and brack pieces for this. Although I had made versions with knex and 
-Lego parts (see the gif in the projects menu). The important parts of the toy are shown in the third and fourth images, which are what can be labeled as wildtype and the mutants, to make an analogy
-with biological concepts. In the sense that these parts can be modified in a modular way and plugged in to the mechanism, just as we do in some gene regulatory networks. The mutants 
-basically consist of release mechanisms which loss water, faster or slower depending on the position and number of holes in the recipient.  
+The images below show the device built. Alongside the K'nex and Lego pieces, I also used some makerbeam frames and bracket pieces. Although It is easy to make a version using only K'nex parts (see the gif above).  The most important parts of the device are shown in the third and fourth images, which are what can be labeled as wildtype and the mutants, to make an analogy with biological concepts. 
+
+The release units can be modified in a modular way, and plugged in to the mechanism, just as we do in some gene regulatory networks. The mutants 
+basically consist of release mechanisms which loss water, faster or slower depending on the release position and number of holes in the recipient.  
 </div>
 
 </br>
@@ -222,18 +218,18 @@ A movie of the system is action is shown below:
 </div>
 
 <p align = "center">
- <iframe  src="https://drive.google.com/file/d/1b96Zlulq5N_p-HcVhIu5cXPPeIY7bwL6/preview" style="border: 3px dotted black; width: 50%; height: 300px;"> </iframe>
-<b><i>The seesaw in action! This is the periodic behaviour we can expect, if the release in almost complete and the refiill is not very fast, so the system fully recovers its initial position.
+ <iframe  src="https://drive.google.com/file/d/1b96Zlulq5N_p-HcVhIu5cXPPeIY7bwL6/preview" style="border: 3px dotted black; width: 100%; height: 300px;"> </iframe>
+<b><i>The seesaw in action! This is the periodic behaviour we can expect, if the release in almost complete and the refill is not very fast, so the system fully recovers its initial position.
 </i></b>
 </p>
 
 
 <div style = "text-align: justify">
-From the videos, it is straightforward to extract the angle using simple segmentation methods (I used OpenCV to segment the yellow bar). As illustrated in the animation below:
+From the videos, it is straightforward to extract the angle using simple segmentation methods (I used OpenCV to segment the bar). As illustrated in the animation below:
 
 
 <p align = "center">
- <iframe  src="gallery/WTHTOP.gif" style="border: 3px dotted black; width: 99%; height: 400px;"> </iframe>
+ <img  src="gallery/XnewHtop_joy.gif" class="grid-w90"> </iframe>
 <b><i>The seesaw in action! This is the WT expected periodic behaviour if the release in almost total and the refill is not very fast, allowing full recovery.
 </i></b>
 </p>
@@ -243,16 +239,14 @@ From the videos, it is straightforward to extract the angle using simple segment
 ## Inducing alternans.
 
 
-
 <div style = "text-align: justify">
 
 Using one of the mutant release units, we observe the  following dynamics:
 
 <p align = "center">
- <iframe  src="gallery/new2H_joy.gif" style="border: 3px dotted black; width: 99%; height: 400px;"> </iframe>
+ <img  src="gallery/Xnew2H_joy.gif" class="grid-w90"> </iframe>
 <b><i>By replacing the release unit, we observe the 2:1 alternating behaviour. The release unit in this case releases a different amount of water (its the two holed mutant shown above).</i></b>
 </p>
-
 
 Although it quite easy to carry out these type of experiments, It quickly becomes rather complicated to measure a full set of initial conditions and parameter values. For instance to have a cheap and on the fly way to measure the water flow, or to automate the process of water recycling over many tries becomes pretty complicated if we are running the experiments on a near to zero budget. This makes simulation a great tool to use.  
 
@@ -265,9 +259,9 @@ Numerical integration of Eq. (3) using the value of \(  g = 9.81\, m/s^2\), the 
 
 
 <p align = "center">
-<iframe  src="https://calugo.github.io/Shishi_Odoshi_Mechanical_Neuron/" style="border: 0px dotted black; width: 80%; height: 850px;"> </iframe>
+<iframe  src="https://calugo.github.io/Shishi_Odoshi_Mechanical_Neuron/" style="border: 0px dotted black; width: 100%; height: 850px;"> </iframe>
 <b><i>
-Interactive simulator: The tunable parameters are H: Red bar position, H2: Blue bar position, Xo: Stimulus angle range (white line), km: Fraction of water released, Is: current strength. The plots displayed are the mass present at the right end of the seesaw \( \Delta m (t) \) as well as the angle temporal evolution \( \Phi(t) \). Once a solution is computed the PLAY button shows the rod oscillation simulation.
+Interactive simulator: The tunable parameters are H: Red bar position, H2: Blue bar position, Xo: Stimulus angle range (white line), km: Fraction of water released, Is: current strength. The plots displayed are the mass present at the right end of the seesaw \( \Delta m (t) \) as well as the angle temporal evolution \( \Phi(t) \). Once a solution is computed the PLAY button shows the rod dynamics simulation.
 </i></b>
 </p>
 Playing around with the integrator, We can always find solutions which resemble the experiments. In the case of the recovery from inactivation, it is notable that the mechanism translates in a straightforward way! 
