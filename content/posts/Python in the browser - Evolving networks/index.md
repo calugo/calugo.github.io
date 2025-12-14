@@ -128,8 +128,8 @@ change any further. Once such a fixed point is reached, a new species is added t
  The new species starts with a population of one individual and the short and intermediate time scale dynamics starts again.
 </div>
 </br>
-<iframe class="grid-w100" src="https://calugo.github.io/WebWorld/joy"
- height="500" title="Iframe Example"></iframe>
+<iframe class="grid-w50" src="https://calugo.github.io/WebWorld/joy"
+ height="450" title="Iframe Example"></iframe>
 <div style="text-align: justify"><b> <i>
 Evolution of the number of species (right panel) and the efforts matrix (left panel) corresponding to the foodwebs shown earlier. Notice that the system starts with one species and then it fluctuates by the action of extinction events and evolutionary events. 
 </i></b></div>
