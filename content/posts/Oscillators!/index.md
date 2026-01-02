@@ -25,9 +25,7 @@ I would like to put under consideration the oscillating system below:
 </div>
 
 <p align = "center">
-
-<iframe src="gallery/graynice.gif" style="border: 0px dotted black;width: 100%; height: 300px;"> </iframe>
-
+    <iframe src="gallery/graynice.gif" style="border: 0px dotted black; width: 80%; height: 300px;"> </iframe>
 </p>
 
 <div style = "text-align: justify">
@@ -52,7 +50,7 @@ The little movie below (borrowed from  <a href="https://physics.gatech.edu/user/
 
 </br>
 <p align = "center">
-<iframe src="https://drive.google.com/file/d/14qzMfikBVK-uPYWsPPQ2Jc4wjAzu7AjB/preview" style="border: 3px dotted black; width: 25%; height: 100px;"> </iframe>
+<iframe src="gallery/tst.gif" style="border: 0px dotted black; width: 80%; height: 340px"> </iframe>
 <b><i>Propagating calcium wave producing the contraction of a ventricular cell.  Copyright: Lee & Fenton</b></i>
 </p>
 
