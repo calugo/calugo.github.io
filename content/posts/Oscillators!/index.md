@@ -7,11 +7,13 @@ tags: ["dynamical systems", "biological clocks", "mechanical clocks","electronic
 ---
 <div style = "text-align: justify">
 
-It is never easy or cheap to carry out biological research, without a laboratory, a microscope, etc. In general, practical constraints makes challenging to design practical and portable demonstrations and outreach activities to illustrate key findings and concepts.   On the other hand, using mathematical models based on physical and chemical principles allow us to formulate the theoretical frameworks which can be investigated using the machinery of dynamical systems and computer simulations, which lead to hypotheses testing, and/or predictions about the mechanisms under investigation, again, unless the target audience for a demonstration or talk is not versed with such concepts, it can be tricky to make translate any results based only on equations and static plots.
+It is never easy or cheap to carry out biological research without a lab work, microscopes, etc. Such constraints make challenging to design practical and portable demonstrations for talks or outreach activities. On the other hand, using mathematical models based on physical and chemical principles
+allow us to investigate these using the dynamical systems machinery and computer simulations, test hypotheses and make predictions about the mechanisms of interest. However, unless the target audience is versed with such concepts, it can be tricky to translate any results using only equations and plots.
 
-In this post, I present a set of examples which, couple experiments, maths and programming nicely in a way which can be presented to biologists, physicists and general audiences to illustrate how using in the theory, experiments alongside with computers can be used to illustrate ideas is, genetics, cardiac dynamics, neurosciences alike using a simple mechanical system. 
+In this post, I present examples of systems for which coupling, maths and programming and simple experiments, can be used to present some core concepts to biologists, physicists and general audiences.  Specifically how 
+biological oscillators such as neurons and cardiac cells, exhibit similar behaviours to those observed in a simple mechanical system. 
 
-Again, for this project all the simulations I show here, had all the numerical codes written in C and compiled using <a href="https://emscripten.org/" target="_blank" >emscripten</a> to be used in the simulations which are all built using my favorite JS library <a href="https://threejs.org/" target = "_blank">three.js</a>.
+Again, for this project the simulations I show here, the numerical codes are written in C and compiled using <a href="https://emscripten.org/" target="_blank" >emscripten</a>. The visualisatios are built using my favorite JS library <a href="https://threejs.org/" target = "_blank">three.js</a>.
 
 </div>
 
@@ -25,12 +27,15 @@ I would like to put under consideration the oscillating system below:
 </div>
 
 <p align = "center">
-    <iframe src="gallery/graynice.gif" style="border: 0px dotted black; width: 80%; height: 300px;"> </iframe>
+    <iframe src="gallery/graynice.gif" style="border: 0px dotted black; width: 50%; height: 300px;"> </iframe>
 </p>
 
 <div style = "text-align: justify">
 
-Prettier versions of this device can be found in some Japanese gardens and are called "deer-frigthening" or "boar-frigthening" and according to <a href="https://en.wikipedia.org/wiki/Shishi-odoshi" target="_blank">Wikipedia</a>  that has been the traditional use of these. Beyond beauty and elegance, these devices are interesting because these show a set of features which are shared by some very important biological oscillators: 
+The device is a toy version of the "shishi-odoshi" which means "deer-frigthening" or "boar-frigthening"  which  according to <a href="https://en.wikipedia.org/wiki/Shishi-odoshi" target="_blank">Wikipedia</a> has those traditional uses.
+Prettier versions of these can be found in some Japanese gardens. 
+
+Beyond beauty and elegance, these devices are interesting because exhibit features shared by some very important biological systems: 
 
 </div>
 
@@ -43,18 +48,19 @@ Prettier versions of this device can be found in some Japanese gardens and are c
 
 
 <div style = "text-align: justify">
-Known biological clocks which exhibit "similar" behaviour are cardiac cells, neurons, and on a full organism scale venus flytraps. The stimulus can be electrical like in cells, mechanical as in the case of the flytrap, amongst others such as light for the case of circadian clocks or even chemical as in the case of oscillating reactions.
+Known systems which exhibit "similar" behaviour are cardiac cells, neurons, and, on a full organism scale venus flytraps.  The stimulus can be electrical like in cells, mechanical as in the case of the flytrap, in some other systems the stimulus 
+can be chemical or even light.
 
-The little movie below (borrowed from  <a href="https://physics.gatech.edu/user/flavio-fenton" target="_blank">Flavio Fenton's </a> old website) shows a myocyte being stimulated at a single location.  The stimulus location releases calcium which then diffuses through the cell, activating more release locations sites and forming a wave. The stimulus is continuous, yet the behaviour of the myocyte is that of a beating cell. 
+The movie below (borrowed from  <a href="https://physics.gatech.edu/user/flavio-fenton" target="_blank">Flavio Fenton's </a> old website) shows a myocyte being stimulated at a single location.  The stimulus location releases calcium which then diffuses through the cell, activating more release locations sites and forming a wave. The stimulus is continuous, yet the behaviour of the myocyte is that of a beating cell. 
 </div>
 
 </br>
 <p align = "center">
-<iframe src="gallery/tst.gif" style="border: 0px dotted black; width: 80%; height: 340px"> </iframe>
+<iframe src="gallery/tst.gif" style="border: 0px dotted black; width: 100%; height: 340px"> </iframe>
 <b><i>Propagating calcium wave producing the contraction of a ventricular cell.  Copyright: Lee & Fenton</b></i>
 </p>
 
-## Models and Arrhythmias.
+## Cardiac Cell Models and Arrhythmias.
 <div style = "text-align: justify">
 Calcium cycling in cardiac cells is a very active field of research. Very <a href="https://doi.org/10.1152/ajpheart.00515.2013">detailed models</a> have been developed, incorporating experimental data and taking into account several ion currents, buffers and sequestration dynamics. These models consider cells as compartments where ion currents occur as the consequence of ions flowing from the one compartment to another. In the case of atrial cells a common model schematic is illustrated below.
 </div>
@@ -68,9 +74,9 @@ Calcium cycling in cardiac cells is a very active field of research. Very <a hre
 
 <div style = "text-align: justify">
 
-The diagram above shows several cell compartments connected through pumps and gates, as well as the connections of several inner and outer domains of the cell (Left panel). And  the dynamics responsible for the calcium cycling, where the Ryanodine receptors (RyR2) states can be found in four configurations or states {{< katex >}}  \\( (I_1, I_2, O,C) \\). The reciprocal of the activation rate \\( \tau_r = \frac{1}{k_B} \\) corresponds to the recovery from inactivation time. 
+The diagram above shows several cell compartments connected through pumps and gates (Left panel). The dynamics responsible for the calcium release are shown in the right panel. The Ryanodine receptors (RyR2) can be found in four configurations or states {{< katex >}}  \\( (I_1, I_2, O,C) \\). The reciprocal of the activation rate \\( \tau_r = \frac{1}{k_B} \\) corresponds to the recovery from inactivation time. 
 
-The translation of the sketched currents in the diagrams into mathematical models can be as complex and detailed as we require (see [1]). In this post however I would like to use the model presented in [2], which is a simplified and elegant version that serves very well to illustrate what we want in this post. The diagram of the currents consideres is shown below:
+The translation of the sketched currents in the diagrams into mathematical models can be as complex and detailed as we require (see [1]). In this post however I would like to use the model presented in [2], which is a simplified and elegant version that serves very well to illustrate what I want to discuss here. The diagram of the currents is shown below:
 
 <p align = "center">
     <img src="gallery/Simple.png" class="grid-w80" />
@@ -85,9 +91,9 @@ $$\dot{c}\_{j} = I_{s}(t)+g_{rel}c_{rel}\frac{k_ac_j^2}{k_{om}+k_ac_j^2}(c_{SR}-
 $$\dot{c}\_{rel} = k_{im}(1-c_{rel}) - k_ic_jc_{rel}\quad(2)$$
 
 
-(1) and (2) constitute a minimal model for calcium release incorporating the release dynamics. Notice that the first term in the rhs of (1) is the external stimulus \\(I_{CaL}(t)=I_{s}(t)\\), Which is provided by the pacemaker cells in the heart or externally in experiments. 
+Eqns. (1) and (2) constitute a minimal model for calcium release. The first term in the rhs of (1) is the external stimulus \\(I_{CaL}(t)=I_{s}(t)\\), Which is provided by the pacemaker cells in the heart or externally in experiments. 
 
-A healthy cell will normally release Calcium periodically, driven by the periodic stimulus. If the recovery time of the ion release channels is fast compared to the stimulus period. An example is illustrated below.  Where \\(T_s=400\ ms\\) and \\(T_r = 200\ ms \\) 
+A healthy cell normally releases Calcium periodically, driven by the periodic stimulus and if the recovery time of the ion release channels is fast compared to the stimulus period. An example of this is illustrated below.  Where \\(T_s=400\ ms\\) and \\(T_r = 200\ ms \\) 
 </div>
 
 
@@ -126,15 +132,15 @@ By solving the model, sweeping the recovery times and keeping the stimulus perio
 
 
 <div style = "text-align: justify">
-If you want to play around this model, next I present an interactive solver-plotter where you can change the values of the stimulus and the recovery time!
+If you want to play around with this model, an interactive solver-plotter is shown below, where you can change the values of the stimulus and the recovery time!
 </div>
 </br>
 
 <div style = "text-align: justify">
  <iframe src="https://calugo.github.io/UPC_Minimal_Calcium_Model/"
  style="border: 3px dotted black; width: 100%; height: 300px;"> </iframe>
-<b><i>Interactive Numerical integrator of Eqns. (1) - (2). It works better on a <a href="https://calugo.github.io/UPC_Minimal_Calcium_Model/"  target="_blank">tab of its own!</a>. 
-C, Python and Julia versions, instructions and documentation to make your own can be found <a href="https://github.com/calugo/UPC_Minimal_Calcium_Model">in this repository</a>. The solution scene can be panned around and zoomed in/out using the mouse's right and middle buttons (or the touch gestures equivalents).
+<b><i>Interactive Numerical integrator of Eqns. (1) - (2). It works better on a <a href="https://calugo.github.io/UPC_Minimal_Calcium_Model/"  target="_blank">tab of its own!</a>. Codes to integrate the model in 
+C, Python and Julia, as wel as  instructions and documentation to make your own can be found <a href="https://github.com/calugo/UPC_Minimal_Calcium_Model">in this repository</a>. The solution scene can be panned around and zoomed in/out using the mouse's right and middle buttons (or the touch gestures equivalents).
 </i></b>
 </div>
 
@@ -142,9 +148,9 @@ C, Python and Julia versions, instructions and documentation to make your own ca
 
 <div style = "text-align: justify">
 
-The complex alternating behaviour of the cardiac cells occurs if the cell possess dysfunctional calcium release units due to a damaged cell, or an underlying genetic condition. Mathematically this is encoded in the value of \\( k_{im} \\). 
+The complex alternating behaviour of the cardiac cells occurs if the cell possess dysfunctional calcium release units due to a damaged cell or an underlying genetic condition. Mathematically this is encoded in the value of \\( k_{im} \\). 
 
-To investigate the origin of these dynamics, it is easy to build a japanese seesaw with bits and bobs of Lego and K'Nex toys. It is important to take into consideration  the system important parameters.
+To investigate this behaviour using the mechanical system, it is easy to build the japanese seesaw with bits and bobs of Lego and K'Nex toys. It however important to take into consideration some of the system important parameters.
 </div>
 
 
@@ -156,7 +162,7 @@ To investigate the origin of these dynamics, it is easy to build a japanese sees
 </br>
 
 <div style = "text-align: justify">
-The seesaw can be presented as a composite of three bodies. A rod of length \( l \) and mass \(m_b\), a mass \(m_1\) attached to one end of the rod, and a second mass \(m_2\) attached to the other end. If
+The seesaw can be thought as a composite of three bodies. A rod of length \( l \) and mass \(m_b\), a mass \(m_1\) attached to one end of the rod, and a second mass \(m_2\) attached to the other end. If
  the rod is allowed to rotate through an axis passing across its center of mass, then we can consider the system as a rigid body with moment of inertia \( I=I_b+l^2(m_1 +m_2)/4 \).  Where \(I_b\) is the moment
  of inertia of the bar. If the bar is a cylindrical rod of uniform mass density, then \( I_b = l^2/12\). Balancing the torques is easy to obtain the equation of motion for the angle \(\Phi\):
 </div>
@@ -178,11 +184,11 @@ To incorporate the stimulus, we need to add mass to the initial mass attached to
 
 $$m_2=m_{2o} + \alpha t$$
 
-If the angle \\(\Phi \geq \Phi^{\dagger} \\). Where \\(\Phi^{{\dagger}}\\) is a parameter specifying the range of action if the stimulus. 
+If the angle \\(\Phi \geq \Phi^{\dagger} \\). Where \\(\Phi^{{\dagger}}\\) is a parameter specifying the range of action if the stimulus and \\(\alpha \\) the stimulus strength.
 
 The release condition  \\( m_2(t\') = \gamma m_2(t) \\) if \\( \Phi = \Phi_2\\), where  \\(\gamma \in [0,1] \\) is a parameter stating the fraction of water  remaining in the system after the boundary condition at \\( \Phi_2 \\) is reached.  This parameter is the analogous to the parameter \\( k_{im}\\). It regulates the recovery time. 
 
-Other important parameters are: the threshold mass \\(m_1 \\) which needs to be surpassed by \\(m_2\\) to kickstart the motion and the current strength \\(\alpha\\) specified above.
+Other important parameter is the threshold mass \\(m_1 \\) which needs to be surpassed by \\(m_2\\) to kickstart the motion.
 </div>
 
 </br>
@@ -191,7 +197,7 @@ Other important parameters are: the threshold mass \\(m_1 \\) which needs to be 
 
 
 <div style = "text-align: justify">
-The images below show the device built. Alongside the K'nex and Lego pieces, I also used some makerbeam frames and bracket pieces. Although It is easy to make a version using only K'nex parts (see the gif above).  The most important parts of the device are shown in the third and fourth images, which are what can be labeled as wildtype and the mutants, to make an analogy with biological concepts. 
+The images below show the device I built. I used K'nex and Lego pieces and some makerbeam frames and brackets. Although It is easy to make a version using only K'nex parts.  The most important parts of the device are shown in the third and fourth images, which I labeled as wildtype (WT) and mutants, to make an analogy with biological concepts. 
 
 The release units can be modified in a modular way, and plugged in to the mechanism, just as we do in some gene regulatory networks. The mutants 
 basically consist of release mechanisms which loss water, faster or slower depending on the release position and number of holes in the recipient.  
@@ -212,7 +218,7 @@ of fluid, therefore the refractory period.
 
 
 <div style = "text-align: justify">
-A movie of the system is action is shown below:
+The system in action is shown below:
 </div>
 
 <p align = "center">
@@ -264,7 +270,7 @@ Interactive simulator: The tunable parameters are H: Red bar position, H2: Blue 
 </p>
 Playing around with the integrator, We can always find solutions which resemble the experiments. In the case of the recovery from inactivation, it is notable that the mechanism translates in a straightforward way! 
 
-I have used this small system to connect introduce concepts in genetics, synthetic biology, differential equations, computational physics and recently in physics informed machine learning to audiences of a very varied nature, and thought It would be nice to have it more or less documented in an organised and interactive way accessible for future use.
+I have used this small system to connect and introduce concepts in genetics, synthetic biology, differential equations, computational physics and recently in physics informed machine learning to audiences of a very varied nature, and thought It would be nice to have it more or less documented in an organised and interactive way accessible for future use.
 
 This is the first out of two entries in the series, the other one linking chemical reactions and electronic circuits.
 </div>
