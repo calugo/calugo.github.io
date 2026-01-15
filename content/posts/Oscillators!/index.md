@@ -233,7 +233,7 @@ From the videos, it is straightforward to extract the angle using simple segment
 
 
 <p align = "center">
- <img  src="gallery/XnewHtop_joy.gif" class="grid-w90"> </iframe>
+ <img  src="gallery/XnewHtop_joy.gif" class="grid-w90"> 
 <b><i>The seesaw in action! This is the WT expected periodic behaviour if the release in almost total and the refill is not very fast, allowing full recovery.
 </i></b>
 </p>
@@ -248,7 +248,7 @@ From the videos, it is straightforward to extract the angle using simple segment
 Using one of the mutant release units, we observe the  following dynamics:
 
 <p align = "center">
- <img  src="gallery/Xnew2H_joy.gif" class="grid-w90"> </iframe>
+ <img  src="gallery/Xnew2H_joy.gif" class="grid-w90"> 
 <b><i>By replacing the release unit, we observe the 2:1 alternating behaviour. The release unit in this case releases a different amount of water (its the two holed mutant shown above).</i></b>
 </p>
 
