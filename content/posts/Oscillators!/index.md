@@ -56,7 +56,7 @@ The movie below (borrowed from  <a href="https://physics.gatech.edu/user/flavio-
 
 </br>
 <p align = "center">
-<iframe src="gallery/tst.gif" style="border: 0px dotted black; width: 100%; height: 340px"> </iframe>
+<iframe src="gallery/tst.gif" style="border: 0px dotted black; width: 75%; height: 340px"> </iframe>
 <b><i>Propagating calcium wave producing the contraction of a ventricular cell.  Copyright: Lee & Fenton</b></i>
 </p>
 
