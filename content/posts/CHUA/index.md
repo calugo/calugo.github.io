@@ -88,7 +88,7 @@ It is easy to build the circuit using the gyrator configuration using only resis
 <img src="gallery/P3.png" class="grid-w25" />
 <img src="gallery/PNR.jpg" class="grid-w25" />
 {{< /gallery >}}
-<p align="center"><b><i>Schematics showing how to build the inductor and the diode using Operational Amplifiers with resistors and a capacitor. The OpAms are the only powered units in the circuits. The circuit is powered by two \( 9V \) batteries. 
+<p align="center"><b><i>Schematics showing how to build the inductor and the diode using Operational Amplifiers with resistors and a capacitor. The OpAms are the only powered units in the circuits. The circuit is powered by two \( 9V \) batteries. Click on the images to enlarge them!
 </i></b></p>
 
 In order to have knobs to change the parameters the resistors \(R_{10} and R \) must be potentiometers. The table below shows the values of the components:
