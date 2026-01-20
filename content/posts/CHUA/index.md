@@ -128,7 +128,7 @@ Finally, a brief shot of the scope and oscillator in action, to illustrate its p
 
 <p align = "center">
  <iframe  src="gallery/ChuaScopeM.mp4" style="border: 3px dotted black; width: 100%; height: 300px;"> </iframe>
-<b><i>Screen capture of the BitScope sensor data plotter, showing the same transition as above.
+<b><i>The sensor and  the circuit box in action. the plotter is the same as above the BitScope software.
 </i></b>
 </p>
 
