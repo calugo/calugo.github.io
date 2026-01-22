@@ -71,7 +71,7 @@ Now, the fun bit. The goal is to actually build the circuit and to be able to tu
 
 ### Inductor and Chua's diode. 
 
-Magnetic Induction in a circuit requires the generation ov a ver precise induction field using a coil around some material with a determined geometry such as a cylindrical or a torus coil. These components are not as easy to come by cheaply. Instead using a digital oscillator it is possible to build and equivalent component.  In this case the use of active components is used to build and inductor replacement called "gyrator". The equivalent inductance value is \\(L=R_7 R_9 R_{10}/R_8\\).  
+Magnetic Induction in a circuit requires the generation of a precise field using a coil around some material with a determined geometry such as a cylindrical or a torus coil. These components are not as easy to come by cheaply. Instead using a digital oscillator it is possible to build and equivalent component.  In this case the use of active components is used to build and inductor replacement called "gyrator". The equivalent inductance value is \\(L=R_7 R_9 R_{10}/R_8\\).  
 
 <p align = "center">
 <img src="gallery/Chua.png" class="grid-w40" />
