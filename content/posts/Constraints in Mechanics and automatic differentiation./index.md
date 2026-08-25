@@ -60,7 +60,7 @@ $$m\ddot{z} = -mg + \lambda\quad(5)$$
 Where the indices in \\( f\\) stand for the partial derivative with respect to that variable. The system \\( (3)-(5)\\) needs to be complemented with the constraint equation
  obtained differentiating \\( z \\) respect to time twice:
 
-$$\ddot{z} =(\dot{x}^2 f_{xx} + \dot{y}^2f_{yy})+\dot{x}\dot{y}(f_{xy}+f_{yx})+(\ddot{x}f_x+\\dot{y}f_y)\quad(6)$$
+$$\ddot{z} =(\dot{x}^2 f_{xx} + \dot{y}^2f_{yy})+\dot{x}\dot{y}(f_{xy}+f_{yx})+(\ddot{x}f_x+\\ddot{y}f_y)\quad(6)$$
 
 Solving for \\( \lambda \\) using \\( (3)-(6)\\) gives:
 
@@ -94,7 +94,7 @@ $$  {\bf{k}}_4 = {\bf{F(x }}_n + h{\bf{k}}_3,t+h)\quad(15)    $$
 Where \\( h \\) is the integration step. This is a fourth order method and it requires to evaluate the function \\( \bf{F} \\) four times per iteration. In this case:  $$ {\bf{x}} = (x, y, z, \dot{x}, \dot{y},\dot{z}) \quad(16)$$
 
 And the Function \\( \bf{F} \\):
-$${\bf{F}} = (\dot{x},\dot{y},\dot{z},\ddot{x},\ddot{y},\dot{z})\quad(17) $$ where the last three entries are given by \\( (8)-(10) \\).
+$${\bf{F}} = (\dot{x},\dot{y},\dot{z},\ddot{x},\ddot{y},\ddot{z})\quad(17) $$ where the last three entries are given by \\( (8)-(10) \\).
 
 With everything defined then it is very simple to write a program to solve the problem as long as we know the partial derivatives of the constraint. This is where automatic differentiation shines!.
 </div>
