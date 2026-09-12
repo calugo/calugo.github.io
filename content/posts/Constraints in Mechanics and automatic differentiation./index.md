@@ -46,7 +46,7 @@ In this post I discuss how to solve the type of problem mentioned above using th
 
 <div style = "text-align: justify">
 
-In rectangular coordinates {{< katex >}} \\( r=(x,y,z )\\) the motion of a particle of mass \\( m \\) under the effect of gravity has a Lagrangian function: $$ L_o = \frac{1}{2}  m \dot{r}^2 + m g z \quad(1)$$
+In rectangular coordinates {{< katex >}} \\( r=(x,y,z )\\) the motion of a particle of mass \\( m \\) under the effect of gravity has a Lagrangian function: $$ L_o = \frac{1}{2}  m \dot{r}^2 - m g z \quad(1)$$
 
 If the particle is constrained to move over a surface such an inclined plane or another landscape which can be described by a function \\( z = f(x,y) \\). The Lagrangian \\( (1) \\) needs to be complemented with a contribution for the constraint as:
 
