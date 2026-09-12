@@ -52,7 +52,7 @@ If the particle is constrained to move over a surface such an inclined plane or 
 
 $$L = L_o + \lambda(z-f(x,y)) \quad(2)$$
 
-Where \\( \lambda \\) is a constant called the lagrange multiplier, which needs to be determined to ensure the constrained is fulfilled.   The equations of motion obtained by optimizing \\( \(2\) \\) are:
+Where \\( \lambda \\) is a constant called the Lagrange multiplier, which needs to be determined to ensure the constraint is fulfilled.   The equations of motion obtained by optimizing \\( \(2\) \\) are:
 $$m\ddot{x} = -\lambda f_x\quad(3)$$
 $$m\ddot{y} = -\lambda f_y \quad(4)$$
 $$m\ddot{z} = -mg + \lambda\quad(5)$$
